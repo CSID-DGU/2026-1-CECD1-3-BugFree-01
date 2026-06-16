@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>YAMNet ESC-50 Analysis Report</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2933;
+      background: #f6f8fb;
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+    h2 {
+      margin: 36px 0 14px;
+      font-size: 22px;
+    }
+    .subtitle {
+      margin: 0 0 24px;
+      color: #52606d;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 24px 0 28px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .card-label {
+      color: #627d98;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .card-value {
+      color: #102a43;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    section {
+      margin: 24px 0;
+      padding: 22px;
+      background: white;
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      border: 1px solid #edf2f7;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: white;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid #d9e2ec;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    .data-table th {
+      background: #eef2f7;
+    }
+    .note {
+      padding: 14px 16px;
+      background: #fff8e6;
+      border: 1px solid #f0d98c;
+      border-radius: 8px;
+      color: #594214;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>YAMNet ESC-50 Analysis Report</h1>
+  <p class="subtitle">Metrics are computed only for ESC-50 categories mapped in <code>ESC50_TO_YAMNET_LABELS</code>.</p>
+  <div class="cards">
+    <div class="card"><div class="card-label">Total files</div><div class="card-value">2,000</div></div>
+<div class="card"><div class="card-label">Mapped files</div><div class="card-value">720</div></div>
+<div class="card"><div class="card-label">Mapping coverage</div><div class="card-value">36.0%</div></div>
+<div class="card"><div class="card-label">Top-1 accuracy</div><div class="card-value">28.7%</div></div>
+<div class="card"><div class="card-label">Macro F1</div><div class="card-value">0.377</div></div>
+<div class="card"><div class="card-label">Weighted F1</div><div class="card-value">0.377</div></div>
+<div class="card"><div class="card-label">MRR</div><div class="card-value">0.490</div></div>
+<div class="card"><div class="card-label">Hit@5</div><div class="card-value">78.9%</div></div>
+  </div>
+  <p class="note">YAMNet AudioSet labels and ESC-50 categories are different taxonomies. Improve the mapping dictionary before treating these numbers as final model performance.</p>
+  <section><h2>Yamnet Metrics Dashboard</h2><img src="yamnet_metrics_dashboard.png" alt="yamnet_metrics_dashboard"></section>
+<section><h2>Yamnet Per Category Metrics Heatmap</h2><img src="yamnet_per_category_metrics_heatmap.png" alt="yamnet_per_category_metrics_heatmap"></section>
+<section><h2>Yamnet Per Category F1</h2><img src="yamnet_per_category_f1.png" alt="yamnet_per_category_f1"></section>
+<section><h2>Yamnet Confusion Matrix Normalized</h2><img src="yamnet_confusion_matrix_normalized.png" alt="yamnet_confusion_matrix_normalized"></section>
+<section><h2>Yamnet Confusion Matrix Counts</h2><img src="yamnet_confusion_matrix_counts.png" alt="yamnet_confusion_matrix_counts"></section>
+<section><h2>Yamnet Top Confusions</h2><img src="yamnet_top_confusions.png" alt="yamnet_top_confusions"></section>
+<section><h2>Yamnet Confidence Distribution</h2><img src="yamnet_confidence_distribution.png" alt="yamnet_confidence_distribution"></section>
+  <section>
+    <h2>Overall Metrics</h2>
+    <table border="1" class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metric</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Top-1 accuracy</td>
+      <td>28.7%</td>
+    </tr>
+    <tr>
+      <td>Balanced accuracy</td>
+      <td>28.7%</td>
+    </tr>
+    <tr>
+      <td>Macro precision</td>
+      <td>76.0%</td>
+    </tr>
+    <tr>
+      <td>Macro recall</td>
+      <td>28.7%</td>
+    </tr>
+    <tr>
+      <td>Macro F1</td>
+      <td>37.7%</td>
+    </tr>
+    <tr>
+      <td>Micro F1</td>
+      <td>44.5%</td>
+    </tr>
+    <tr>
+      <td>Weighted F1</td>
+      <td>37.7%</td>
+    </tr>
+    <tr>
+      <td>MRR</td>
+      <td>49.0%</td>
+    </tr>
+    <tr>
+      <td>Mapping coverage</td>
+      <td>36.0%</td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+  <section>
+    <h2>Per-category Metrics</h2>
+    <table border="1" class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>category</th>
+      <th>support</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1_score</th>
+      <th>top1_direct_recall</th>
+      <th>mean_reciprocal_rank</th>
+      <th>average_top1_score</th>
+      <th>hit@1</th>
+      <th>hit@2</th>
+      <th>hit@3</th>
+      <th>hit@4</th>
+      <th>hit@5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>toilet_flush</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>92.5%</td>
+      <td>96.1%</td>
+      <td>92.5%</td>
+      <td>95.2%</td>
+      <td>72.9%</td>
+      <td>92.5%</td>
+      <td>95.0%</td>
+      <td>97.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>thunderstorm</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>82.5%</td>
+      <td>90.4%</td>
+      <td>82.5%</td>
+      <td>90.8%</td>
+      <td>48.3%</td>
+      <td>82.5%</td>
+      <td>97.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>siren</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>57.5%</td>
+      <td>73.0%</td>
+      <td>57.5%</td>
+      <td>73.8%</td>
+      <td>67.5%</td>
+      <td>57.5%</td>
+      <td>75.0%</td>
+      <td>92.5%</td>
+      <td>97.5%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>clock_alarm</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>52.5%</td>
+      <td>68.9%</td>
+      <td>52.5%</td>
+      <td>62.0%</td>
+      <td>62.2%</td>
+      <td>52.5%</td>
+      <td>62.5%</td>
+      <td>72.5%</td>
+      <td>75.0%</td>
+      <td>77.5%</td>
+    </tr>
+    <tr>
+      <td>chainsaw</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>47.5%</td>
+      <td>64.4%</td>
+      <td>47.5%</td>
+      <td>56.5%</td>
+      <td>53.5%</td>
+      <td>47.5%</td>
+      <td>57.5%</td>
+      <td>67.5%</td>
+      <td>70.0%</td>
+      <td>70.0%</td>
+    </tr>
+    <tr>
+      <td>fireworks</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>45.0%</td>
+      <td>62.1%</td>
+      <td>45.0%</td>
+      <td>68.8%</td>
+      <td>57.5%</td>
+      <td>45.0%</td>
+      <td>87.5%</td>
+      <td>95.0%</td>
+      <td>95.0%</td>
+      <td>95.0%</td>
+    </tr>
+    <tr>
+      <td>coughing</td>
+      <td>40</td>
+      <td>93.8%</td>
+      <td>37.5%</td>
+      <td>53.6%</td>
+      <td>37.5%</td>
+      <td>62.4%</td>
+      <td>58.4%</td>
+      <td>37.5%</td>
+      <td>85.0%</td>
+      <td>85.0%</td>
+      <td>87.5%</td>
+      <td>90.0%</td>
+    </tr>
+    <tr>
+      <td>vacuum_cleaner</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>30.0%</td>
+      <td>46.2%</td>
+      <td>30.0%</td>
+      <td>40.9%</td>
+      <td>49.9%</td>
+      <td>30.0%</td>
+      <td>45.0%</td>
+      <td>50.0%</td>
+      <td>55.0%</td>
+      <td>57.5%</td>
+    </tr>
+    <tr>
+      <td>laughing</td>
+      <td>40</td>
+      <td>75.0%</td>
+      <td>22.5%</td>
+      <td>34.6%</td>
+      <td>22.5%</td>
+      <td>48.1%</td>
+      <td>43.0%</td>
+      <td>22.5%</td>
+      <td>55.0%</td>
+      <td>77.5%</td>
+      <td>85.0%</td>
+      <td>85.0%</td>
+    </tr>
+    <tr>
+      <td>clapping</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>17.5%</td>
+      <td>29.8%</td>
+      <td>17.5%</td>
+      <td>36.3%</td>
+      <td>55.0%</td>
+      <td>17.5%</td>
+      <td>37.5%</td>
+      <td>57.5%</td>
+      <td>60.0%</td>
+      <td>67.5%</td>
+    </tr>
+    <tr>
+      <td>cat</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>12.5%</td>
+      <td>22.2%</td>
+      <td>12.5%</td>
+      <td>37.2%</td>
+      <td>49.2%</td>
+      <td>12.5%</td>
+      <td>35.0%</td>
+      <td>72.5%</td>
+      <td>72.5%</td>
+      <td>77.5%</td>
+    </tr>
+    <tr>
+      <td>sneezing</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>7.5%</td>
+      <td>14.0%</td>
+      <td>7.5%</td>
+      <td>40.7%</td>
+      <td>62.6%</td>
+      <td>7.5%</td>
+      <td>57.5%</td>
+      <td>75.0%</td>
+      <td>82.5%</td>
+      <td>85.0%</td>
+    </tr>
+    <tr>
+      <td>helicopter</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>7.5%</td>
+      <td>14.0%</td>
+      <td>7.5%</td>
+      <td>24.7%</td>
+      <td>65.2%</td>
+      <td>7.5%</td>
+      <td>27.5%</td>
+      <td>47.5%</td>
+      <td>47.5%</td>
+      <td>50.0%</td>
+    </tr>
+    <tr>
+      <td>dog</td>
+      <td>40</td>
+      <td>100.0%</td>
+      <td>5.0%</td>
+      <td>9.5%</td>
+      <td>5.0%</td>
+      <td>38.5%</td>
+      <td>77.1%</td>
+      <td>5.0%</td>
+      <td>25.0%</td>
+      <td>82.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>crying_baby</td>
+      <td>40</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>42.2%</td>
+      <td>57.3%</td>
+      <td>0.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>90.0%</td>
+    </tr>
+    <tr>
+      <td>church_bells</td>
+      <td>40</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>39.4%</td>
+      <td>83.8%</td>
+      <td>0.0%</td>
+      <td>42.5%</td>
+      <td>95.0%</td>
+      <td>97.5%</td>
+      <td>97.5%</td>
+    </tr>
+    <tr>
+      <td>sea_waves</td>
+      <td>40</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>24.4%</td>
+      <td>65.4%</td>
+      <td>0.0%</td>
+      <td>5.0%</td>
+      <td>50.0%</td>
+      <td>77.5%</td>
+      <td>77.5%</td>
+    </tr>
+    <tr>
+      <td>rooster</td>
+      <td>40</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>53.6%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+  <section>
+    <h2>Top Confusions</h2>
+    <table border="1" class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>true_category</th>
+      <th>predicted_category</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>church_bells</td>
+      <td>__unmapped_prediction__</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>sea_waves</td>
+      <td>__unmapped_prediction__</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>rooster</td>
+      <td>__unmapped_prediction__</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>dog</td>
+      <td>__unmapped_prediction__</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>helicopter</td>
+      <td>__unmapped_prediction__</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>sneezing</td>
+      <td>__unmapped_prediction__</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>crying_baby</td>
+      <td>__unmapped_prediction__</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>cat</td>
+      <td>__unmapped_prediction__</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>clapping</td>
+      <td>__unmapped_prediction__</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>laughing</td>
+      <td>__unmapped_prediction__</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>vacuum_cleaner</td>
+      <td>__unmapped_prediction__</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>coughing</td>
+      <td>__unmapped_prediction__</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>fireworks</td>
+      <td>__unmapped_prediction__</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>chainsaw</td>
+      <td>__unmapped_prediction__</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>clock_alarm</td>
+      <td>__unmapped_prediction__</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+</main>
+</body>
+</html>

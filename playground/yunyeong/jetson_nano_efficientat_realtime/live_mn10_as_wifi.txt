@@ -1,0 +1,5 @@
+usage: jetson_live.py [-h] --device DEVICE [--model_name MODEL_NAME]
+                      [--rate RATE] [--channels CHANNELS]
+                      [--channel-index CHANNEL_INDEX] [--seconds SECONDS]
+                      [--topk TOPK] [--threshold THRESHOLD] [--cpu]
+jetson_live.py: error: unrecognized arguments: python3 jetson_wifi_bridge.py --port 8765 --log /workspace/audio/live_mn04_as_wifi.txt -- python3 -u jetson_live.py --device plughw:2,0 --model_name mnt04_as --rate 16000 --channels 6 --channel-index 0 --seconds 2 --topk 5

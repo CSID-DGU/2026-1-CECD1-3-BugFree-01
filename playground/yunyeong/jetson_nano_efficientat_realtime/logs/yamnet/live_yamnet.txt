@@ -1,0 +1,110 @@
+[2026-05-20 23:56:10] infer_ms=53.2 windows=4 input_samples=15600
+  0.145  White noise
+
+[2026-05-20 23:56:12] infer_ms=49.0 windows=4 input_samples=15600
+  0.160  White noise
+
+[2026-05-20 23:56:14] infer_ms=48.5 windows=4 input_samples=15600
+  0.273  White noise
+
+[2026-05-20 23:56:16] infer_ms=49.2 windows=4 input_samples=15600
+  no class over threshold=0.1
+
+[2026-05-20 23:56:18] infer_ms=49.1 windows=4 input_samples=15600
+  0.322  Vehicle horn, car horn, honking
+  0.230  Toot
+  0.140  Speech
+  0.104  Car alarm
+
+[2026-05-20 23:56:20] infer_ms=49.1 windows=4 input_samples=15600
+  0.410  Vehicle horn, car horn, honking
+  0.120  Toot
+
+[2026-05-20 23:56:23] infer_ms=53.3 windows=4 input_samples=15600
+  0.306  Vehicle horn, car horn, honking
+  0.208  White noise
+
+[2026-05-20 23:56:25] infer_ms=48.8 windows=4 input_samples=15600
+  0.372  Vehicle horn, car horn, honking
+  0.127  Goose
+  0.116  Toot
+  0.116  Honk
+  0.106  Duck
+
+[2026-05-20 23:56:27] infer_ms=48.7 windows=4 input_samples=15600
+  0.628  Vehicle horn, car horn, honking
+  0.110  Toot
+
+[2026-05-20 23:56:29] infer_ms=51.8 windows=4 input_samples=15600
+  0.644  Ambulance (siren)
+  0.563  Emergency vehicle
+  0.543  Police car (siren)
+  0.521  Siren
+  0.500  Alarm
+
+[2026-05-20 23:56:31] infer_ms=49.8 windows=4 input_samples=15600
+  0.703  Police car (siren)
+  0.686  Ambulance (siren)
+  0.606  Emergency vehicle
+  0.563  Siren
+  0.500  Alarm
+
+[2026-05-20 23:56:33] infer_ms=49.4 windows=4 input_samples=15600
+  0.738  Ambulance (siren)
+  0.647  Emergency vehicle
+  0.584  Police car (siren)
+  0.564  Siren
+  0.479  Alarm
+
+[2026-05-20 23:56:35] infer_ms=48.7 windows=4 input_samples=15600
+  0.665  Police car (siren)
+  0.564  Ambulance (siren)
+  0.500  Emergency vehicle
+  0.353  Motor vehicle (road)
+  0.332  Siren
+
+[2026-05-20 23:56:37] infer_ms=48.3 windows=4 input_samples=15600
+  0.129  Outside, rural or natural
+  0.105  Silence
+
+[2026-05-20 23:56:39] infer_ms=49.0 windows=4 input_samples=15600
+  0.736  Glass
+  0.500  Chink, clink
+  0.479  Breaking
+  0.373  Shatter
+  0.204  Dishes, pots, and pans
+
+[2026-05-20 23:56:41] infer_ms=51.3 windows=4 input_samples=15600
+  no class over threshold=0.1
+
+[2026-05-20 23:56:43] infer_ms=49.4 windows=4 input_samples=15600
+  0.759  Glass
+  0.554  Breaking
+  0.521  Chink, clink
+  0.486  Shatter
+  0.241  Cutlery, silverware
+
+[2026-05-20 23:56:45] infer_ms=50.9 windows=4 input_samples=15600
+  0.391  Breathing
+  0.381  Snoring
+  0.204  Vehicle horn, car horn, honking
+  0.133  Toot
+
+[2026-05-20 23:56:47] infer_ms=51.2 windows=4 input_samples=15600
+  0.236  Breathing
+  0.200  Snoring
+
+[2026-05-20 23:56:50] infer_ms=48.9 windows=4 input_samples=15600
+  0.250  Cattle, bovinae
+  0.229  Moo
+  0.229  Livestock, farm animals, working animals
+  0.148  Pig
+  0.146  Vehicle
+
+[2026-05-20 23:56:52] infer_ms=48.7 windows=4 input_samples=15600
+  0.292  Didgeridoo
+  0.174  Music
+  0.120  Snoring
+  0.118  Cattle, bovinae
+  0.107  Roaring cats (lions, tigers)
+

@@ -1,0 +1,22 @@
+Get:1 http://ports.ubuntu.com/ubuntu-ports bionic InRelease [242 kB]
+Get:2 https://apt.kitware.com/ubuntu bionic InRelease [15.6 kB]
+Err:2 https://apt.kitware.com/ubuntu bionic InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 65ADECD7A7039392
+Get:3 http://ports.ubuntu.com/ubuntu-ports bionic-updates InRelease [102 kB]
+Get:4 http://ports.ubuntu.com/ubuntu-ports bionic-backports InRelease [102 kB]
+Get:5 http://ports.ubuntu.com/ubuntu-ports bionic-security InRelease [102 kB]
+Get:6 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 Packages [1285 kB]
+Get:7 http://ports.ubuntu.com/ubuntu-ports bionic/universe arm64 Packages [11.0 MB]
+Get:8 http://ports.ubuntu.com/ubuntu-ports bionic/restricted arm64 Packages [572 B]
+Get:9 http://ports.ubuntu.com/ubuntu-ports bionic/multiverse arm64 Packages [153 kB]
+Get:10 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 Packages [2142 kB]
+Get:11 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 Packages [2287 kB]
+Get:12 http://ports.ubuntu.com/ubuntu-ports bionic-updates/multiverse arm64 Packages [5317 B]
+Get:13 http://ports.ubuntu.com/ubuntu-ports bionic-updates/restricted arm64 Packages [6305 B]
+Get:14 http://ports.ubuntu.com/ubuntu-ports bionic-backports/main arm64 Packages [63.3 kB]
+Get:15 http://ports.ubuntu.com/ubuntu-ports bionic-backports/universe arm64 Packages [20.1 kB]
+Get:16 http://ports.ubuntu.com/ubuntu-ports bionic-security/main arm64 Packages [1925 kB]
+Get:17 http://ports.ubuntu.com/ubuntu-ports bionic-security/universe arm64 Packages [1456 kB]
+Get:18 http://ports.ubuntu.com/ubuntu-ports bionic-security/multiverse arm64 Packages [2724 B]
+Get:19 http://ports.ubuntu.com/ubuntu-ports bionic-security/restricted arm64 Packages [5639 B]
+Reading package lists...

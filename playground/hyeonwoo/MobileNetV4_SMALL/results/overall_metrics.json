@@ -1,0 +1,26 @@
+{
+  "total_files": 400,
+  "folds": [
+    5
+  ],
+  "class_count": 50,
+  "topk_analyzed": 5,
+  "top1_accuracy": 0.7125,
+  "macro_precision": 0.7217489177489178,
+  "macro_recall": 0.7125,
+  "macro_f1": 0.7041032074220928,
+  "weighted_f1": 0.7041032074220928,
+  "mean_reciprocal_rank": 0.7885,
+  "average_top1_score": 0.7803677739575505,
+  "average_top1_score_when_correct": 0.8473364779300857,
+  "average_top1_score_when_incorrect": 0.6144018554169198,
+  "average_inference_time_ms": 0.7647844999883091,
+  "median_inference_time_ms": 0.3829343750112457,
+  "topk_hit_rates": {
+    "hit@1": 0.7125,
+    "hit@2": 0.7875,
+    "hit@3": 0.87,
+    "hit@4": 0.9,
+    "hit@5": 0.9175
+  }
+}

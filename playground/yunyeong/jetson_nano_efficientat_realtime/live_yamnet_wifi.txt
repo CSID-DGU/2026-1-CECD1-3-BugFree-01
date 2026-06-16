@@ -1,0 +1,15 @@
+[11:51:09] infer=0.050s total=2.098s windows=4 input_samples=15600 | Silence 0.154 / Outside, rural or natural 0.122
+[11:51:11] infer=0.048s total=2.099s windows=4 input_samples=15600 | Silence 0.479
+[11:51:13] infer=0.048s total=2.092s windows=4 input_samples=15600 | Silence 0.395
+[11:51:15] infer=0.048s total=2.097s windows=4 input_samples=15600 | Silence 0.377
+[11:51:17] infer=0.048s total=2.096s windows=4 input_samples=15600 | Silence 0.311
+[11:51:19] infer=0.048s total=2.096s windows=4 input_samples=15600 | Hands 0.266 / Cap gun 0.196 / Clapping 0.189 / Inside, small room 0.151 / Gunshot, gunfire 0.128
+[11:51:21] infer=0.048s total=2.099s windows=4 input_samples=15600 | Cap gun 0.297 / Silence 0.250 / Gunshot, gunfire 0.244 / Explosion 0.194 / Inside, small room 0.105
+[11:51:23] infer=0.048s total=2.100s windows=4 input_samples=15600 | Silence 0.397
+[11:51:26] infer=0.048s total=2.095s windows=4 input_samples=15600 | Silence 0.394
+[11:51:28] infer=0.048s total=2.105s windows=4 input_samples=15600 | Vehicle 0.179
+[11:51:30] infer=0.048s total=2.096s windows=4 input_samples=15600 | Siren 0.399 / Alarm 0.390 / Police car (siren) 0.384 / Emergency vehicle 0.310 / Ambulance (siren) 0.309
+[11:51:32] infer=0.048s total=2.100s windows=4 input_samples=15600 | Police car (siren) 0.721 / Ambulance (siren) 0.624 / Emergency vehicle 0.542 / Siren 0.542 / Alarm 0.499
+[11:51:34] infer=0.048s total=2.095s windows=4 input_samples=15600 | Silence 0.142
+[11:51:36] infer=0.048s total=2.096s windows=4 input_samples=15600 | Silence 0.414
+[11:51:38] infer=0.048s total=2.095s windows=4 input_samples=15600 | Silence 0.395

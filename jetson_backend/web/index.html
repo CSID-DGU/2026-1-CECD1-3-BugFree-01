@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jetson Orin Nano Realtime Audio</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body data-state="listening" data-level="listening">
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Jetson Orin Nano</p>
+          <h1>Realtime Audio Inference</h1>
+        </div>
+        <div class="connection" data-connection="idle">
+          <span class="connection-dot" aria-hidden="true"></span>
+          <span id="connectionText">대기</span>
+        </div>
+      </header>
+
+      <form id="sourceForm" class="source-form">
+        <label class="field">
+          <span>소스</span>
+          <select id="sourceMode">
+            <option value="sse">SSE</option>
+            <option value="log">LOG URL</option>
+            <option value="file">FILE</option>
+          </select>
+        </label>
+        <label class="field source-url-field">
+          <span>URL</span>
+          <input id="sourceUrl" type="text" value="/events" autocomplete="off" spellcheck="false">
+        </label>
+        <button type="submit" class="primary-button">연결</button>
+        <button type="button" id="sampleButton" class="ghost-button">샘플</button>
+        <input id="fileInput" type="file" accept=".txt,.log" hidden>
+      </form>
+
+      <section class="dashboard" aria-live="polite">
+        <section class="panel current-panel">
+          <div class="state-row">
+            <span id="stateBadge" class="state-badge">LISTENING</span>
+            <span id="statusText" class="status-text">소리를 기다리는 중</span>
+          </div>
+
+          <div class="current-sound">
+            <div id="soundIcon" class="sound-icon" aria-hidden="true">〰️</div>
+            <div>
+              <div id="soundLabel" class="sound-label">소리를 듣고 있어요</div>
+              <div id="soundScore" class="sound-score">10개 정규화</div>
+            </div>
+          </div>
+
+          <div class="score-meter" aria-hidden="true">
+            <div id="scoreMeterBar" class="score-meter-bar"></div>
+          </div>
+
+          <dl class="metrics">
+            <div>
+              <dt>TIME</dt>
+              <dd id="timeValue">-</dd>
+            </div>
+            <div>
+              <dt>LEVEL</dt>
+              <dd id="dbValue">-</dd>
+            </div>
+            <div>
+              <dt>ENHANCED</dt>
+              <dd id="enhancedValue">-</dd>
+            </div>
+            <div>
+              <dt>INFER</dt>
+              <dd id="inferValue">-</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="panel candidates-panel">
+          <div class="panel-heading">
+            <h2>Candidate Classes</h2>
+            <span id="thresholdValue">10개 정규화</span>
+          </div>
+          <div id="candidateList" class="candidate-list"></div>
+        </section>
+      </section>
+
+      <section class="panel raw-panel">
+        <div class="panel-heading">
+          <h2>Latest Line</h2>
+          <span id="sourceValue">-</span>
+        </div>
+        <pre id="rawLine"></pre>
+      </section>
+    </main>
+
+    <script src="./realtime-parser.js"></script>
+    <script src="./realtime-ui.js"></script>
+  </body>
+</html>

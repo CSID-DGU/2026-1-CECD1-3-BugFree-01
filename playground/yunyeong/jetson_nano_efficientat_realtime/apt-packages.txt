@@ -1,0 +1,7 @@
+alsa-utils
+ffmpeg
+usbutils
+git
+curl
+wget
+python3-pip

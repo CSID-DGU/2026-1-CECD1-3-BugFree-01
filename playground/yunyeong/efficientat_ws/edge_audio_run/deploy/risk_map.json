@@ -1,0 +1,9 @@
+{
+  "background": "none",
+  "appliance_alarm": "warning",
+  "baby_cry": "warning",
+  "car_horn": "danger",
+  "dog_cat": "info",
+  "glass_break": "danger",
+  "siren": "danger"
+}

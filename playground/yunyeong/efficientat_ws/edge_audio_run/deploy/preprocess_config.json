@@ -1,0 +1,22 @@
+{
+  "sample_rate": 32000,
+  "clip_seconds": 1.0,
+  "clip_samples": 32000,
+  "n_fft": 1024,
+  "win_length": 800,
+  "hop_size": 320,
+  "n_mels": 128,
+  "time_frames": 100,
+  "fmin": 0.0,
+  "fmax": 15000.0,
+  "preemphasis": 0.97,
+  "log_offset": 1e-05,
+  "norm_add": 4.5,
+  "norm_div": 5.0,
+  "input_shape": [
+    1,
+    1,
+    128,
+    100
+  ]
+}

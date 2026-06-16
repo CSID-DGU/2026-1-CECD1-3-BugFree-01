@@ -1,0 +1,719 @@
+=== Cleanup stale EdgeAudio containers/processes ===
+928320e3f451
+=== Disable broken Kitware apt repo inside container, if present ===
+0% [Working]0% [Waiting for headers]                        Get:1 http://ports.ubuntu.com/ubuntu-ports bionic InRelease [242 kB]
+0% [1 InRelease 10.9 kB/242 kB 5%]0% [1 InRelease 54.7 kB/242 kB 23%]                                   0% [1 InRelease 220 kB/242 kB 91%]                                  0% [Working]0% [1 InRelease gpgv 242 kB] [Waiting for headers]                                                  0% [Waiting for headers]                        Get:2 http://ports.ubuntu.com/ubuntu-ports bionic-updates InRelease [102 kB]
+0% [2 InRelease 0 B/102 kB 0%]                              0% [Working]0% [2 InRelease gpgv 102 kB] [Waiting for headers]                                                  0% [Waiting for headers]                        Get:3 http://ports.ubuntu.com/ubuntu-ports bionic-backports InRelease [102 kB]
+0% [3 InRelease 11.2 kB/102 kB 11%]                                   0% [Working]0% [3 InRelease gpgv 102 kB] [Waiting for headers]                                                  0% [Waiting for headers]                        Get:4 http://ports.ubuntu.com/ubuntu-ports bionic-security InRelease [102 kB]
+0% [4 InRelease 10.4 kB/102 kB 10%]                                   0% [Working]0% [4 InRelease gpgv 102 kB]                            Get:5 http://ports.ubuntu.com/ubuntu-ports bionic/multiverse arm64 Packages [153 kB]
+0% [4 InRelease gpgv 102 kB] [5 Packages 5133 B/153 kB 3%]                                                          0% [4 InRelease gpgv 102 kB] [Waiting for headers]                                                  Get:6 http://ports.ubuntu.com/ubuntu-ports bionic/universe arm64 Packages [11.0 MB]
+0% [4 InRelease gpgv 102 kB] [6 Packages 200 kB/11.0 MB 2%]0% [5 Packages store 0 B] [4 InRelease gpgv 102 kB] [6 Packages 215 kB/11.0 MB                                                                                0% [4 InRelease gpgv 102 kB] [6 Packages 459 kB/11.0 MB 4%]                                                           34% [6 Packages 4815 kB/11.0 MB 44%]                                    58% [Waiting for headers]                         Get:7 http://ports.ubuntu.com/ubuntu-ports bionic/restricted arm64 Packages [572 B]
+                         Get:8 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 Packages [1285 kB]
+60% [8 Packages 603 kB/1285 kB 47%]60% [6 Packages store 0 B] [8 Packages 603 kB/1285 kB 47%]                                                          63% [6 Packages store 0 B]                          Get:9 http://ports.ubuntu.com/ubuntu-ports bionic-updates/multiverse arm64 Packages [5317 B]
+63% [6 Packages store 0 B] [9 Packages 5317 B/5317 B 100%]                                                          63% [6 Packages store 0 B] [Waiting for headers]                                                Get:10 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 Packages [2142 kB]
+63% [6 Packages store 0 B] [10 Packages 32.7 kB/2142 kB 2%]                                                           71% [6 Packages store 0 B]                          Get:11 http://ports.ubuntu.com/ubuntu-ports bionic-updates/restricted arm64 Packages [6305 B]
+71% [6 Packages store 0 B] [11 Packages 6305 B/6305 B 100%]                                                           71% [6 Packages store 0 B]                          Get:12 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 Packages [2287 kB]
+71% [6 Packages store 0 B] [12 Packages 0 B/2287 kB 0%]                                                       79% [6 Packages store 0 B]                          Get:13 http://ports.ubuntu.com/ubuntu-ports bionic-backports/universe arm64 Packages [20.1 kB]
+80% [6 Packages store 0 B] [13 Packages 20.1 kB/20.1 kB 100%]                                                             80% [6 Packages store 0 B]                          Get:14 http://ports.ubuntu.com/ubuntu-ports bionic-backports/main arm64 Packages [63.3 kB]
+80% [6 Packages store 0 B] [14 Packages 31.0 kB/63.3 kB 49%]                                                            80% [6 Packages store 0 B]                          Get:15 http://ports.ubuntu.com/ubuntu-ports bionic-security/universe arm64 Packages [1456 kB]
+80% [6 Packages store 0 B] [15 Packages 32.6 kB/1456 kB 2%]                                                           85% [6 Packages store 0 B] [Waiting for headers]                                                Get:16 http://ports.ubuntu.com/ubuntu-ports bionic-security/multiverse arm64 Packages [2724 B]
+85% [6 Packages store 0 B] [16 Packages 2724 B/2724 B 100%]                                                           85% [6 Packages store 0 B] [Waiting for headers]                                                Get:17 http://ports.ubuntu.com/ubuntu-ports bionic-security/main arm64 Packages [1925 kB]
+86% [6 Packages store 0 B] [17 Packages 65.5 kB/1925 kB 3%]                                                           93% [6 Packages store 0 B]                          Get:18 http://ports.ubuntu.com/ubuntu-ports bionic-security/restricted arm64 Packages [5639 B]
+93% [6 Packages store 0 B] [18 Packages 0 B/5639 B 0%]                                                      93% [6 Packages store 0 B]93% [6 Packages store 0 B]93% [6 Packages store 0 B]93% [6 Packages store 0 B]                          93% [Working]93% [7 Packages store 0 B]                          94% [Working]94% [8 Packages store 0 B]                          94% [Working]94% [9 Packages store 0 B]                          95% [Working]95% [10 Packages store 0 B]96% [Working]                                                      3376 kB/s 0s96% [11 Packages store 0 B]                                        3376 kB/s 0s96% [Working]                                                      3376 kB/s 0s96% [12 Packages store 0 B]                                        3376 kB/s 0s97% [Working]                                                      3376 kB/s 0s97% [13 Packages store 0 B]                                        3376 kB/s 0s97% [Working]                                                      3376 kB/s 0s97% [14 Packages store 0 B]                                        3376 kB/s 0s98% [Working]                                                      3376 kB/s 0s98% [15 Packages store 0 B]                                        3376 kB/s 0s98% [Working]                                                      3376 kB/s 0s98% [16 Packages store 0 B]                                        3376 kB/s 0s99% [Working]                                                      3376 kB/s 0s99% [17 Packages store 0 B]                                        3376 kB/s 0s99% [Working]                                                      3376 kB/s 0s99% [18 Packages store 0 B]                                        3376 kB/s 0s100% [Working]                                                     3376 kB/s 0s                                                                               Fetched 20.9 MB in 7s (2936 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 18%Reading package lists... 45%Reading package lists... 60%Reading package lists... 60%Reading package lists... 61%Reading package lists... 61%Reading package lists... 68%Reading package lists... 72%Reading package lists... 72%Reading package lists... 72%Reading package lists... 72%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 83%Reading package lists... 83%Reading package lists... 92%Reading package lists... 92%Reading package lists... 92%Reading package lists... 92%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 18%Reading package lists... 45%Reading package lists... 60%Reading package lists... 60%Reading package lists... 61%Reading package lists... 61%Reading package lists... 68%Reading package lists... 72%Reading package lists... 72%Reading package lists... 72%Reading package lists... 72%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 83%Reading package lists... 83%Reading package lists... 92%Reading package lists... 92%Reading package lists... 92%Reading package lists... 92%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+The following additional packages will be installed:
+  dbus kmod libavcodec57 libavdevice57 libavfilter6 libavformat57
+  libavresample3 libavutil55 libcdio-cdda2 libcdio-paranoia2 libcurl4
+  libdbus-1-3 libfftw3-single3 libnewt0.52 libpopt0 libpostproc54
+  libsdl2-2.0-0 libswresample2 libswscale4 libxss1 libxv1 whiptail
+Suggested packages:
+  bluez-cups bluez-obexd default-dbus-session-bus | dbus-session-bus
+  ffmpeg-doc gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-el
+  git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn libfftw3-bin
+  libfftw3-dev
+Recommended packages:
+  less ssh-client
+The following NEW packages will be installed:
+  alsa-utils bluetooth bluez curl dbus ffmpeg kmod libavdevice57 libcdio-cdda2
+  libcdio-paranoia2 libcurl4 libfftw3-single3 libnewt0.52 libpopt0
+  libsdl2-2.0-0 libxss1 libxv1 python3-usb rfkill usbutils whiptail
+The following packages will be upgraded:
+  git libavcodec57 libavfilter6 libavformat57 libavresample3 libavutil55
+  libdbus-1-3 libpostproc54 libswresample2 libswscale4
+10 upgraded, 21 newly installed, 0 to remove and 138 not upgraded.
+Need to get 14.3 MB of archives.
+After this operation, 15.2 MB of additional disk space will be used.
+0% [Working]            Get:1 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 libxss1 arm64 1:1.2.2-1 [7968 B]
+0% [1 libxss1 7240 B/7968 B 91%]                                1% [Working]            Get:2 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 libdbus-1-3 arm64 1.12.2-1ubuntu1.4 [152 kB]
+1% [2 libdbus-1-3 1448 B/152 kB 1%]                                   2% [Working]            Get:3 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 dbus arm64 1.12.2-1ubuntu1.4 [130 kB]
+2% [3 dbus 14.1 kB/130 kB 11%]                              4% [Waiting for headers]                        Get:4 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 kmod arm64 24-1ubuntu3.5 [78.2 kB]
+4% [4 kmod 12.3 kB/78.2 kB 16%]                               Get:5 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 libnewt0.52 arm64 0.52.20-1ubuntu1 [34.5 kB]
+5% [5 libnewt0.52 4096 B/34.5 kB 12%]                                     5% [Working]            Get:6 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 libpopt0 arm64 1.16-11 [22.8 kB]
+6% [6 libpopt0 20.2 kB/22.8 kB 89%]                                   6% [Working]            Get:7 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 whiptail arm64 0.52.20-1ubuntu1 [15.4 kB]
+6% [7 whiptail 15.4 kB/15.4 kB 100%]                                    7% [Working]            Get:8 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 usbutils arm64 1:007-4build1 [202 kB]
+7% [8 usbutils 3837 B/202 kB 2%]                                9% [Working]            Get:9 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 libfftw3-single3 arm64 3.3.7-1 [525 kB]
+9% [9 libfftw3-single3 17.9 kB/525 kB 3%]                                         12% [Waiting for headers]                         Get:10 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 alsa-utils arm64 1.1.3-1ubuntu1 [946 kB]
+12% [10 alsa-utils 4850 B/946 kB 1%]                                    18% [Working]             Get:11 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 bluez arm64 5.48-0ubuntu3.9 [775 kB]
+18% [11 bluez 41.3 kB/775 kB 5%]                                23% [Working]             Get:12 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 bluetooth all 5.48-0ubuntu3.9 [3152 B]
+23% [12 bluetooth 3152 B/3152 B 100%]                                     24% [Waiting for headers]                         Get:13 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 libcurl4 arm64 7.58.0-2ubuntu3.24 [185 kB]
+24% [13 libcurl4 48.3 kB/185 kB 26%]                                    Get:14 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 curl arm64 7.58.0-2ubuntu3.24 [152 kB]
+                                    26% [14 curl 106 kB/152 kB 70%]                               27% [Working]             Get:15 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libavutil55 arm64 7:3.4.11-0ubuntu0.1 [174 kB]
+27% [15 libavutil55 37.7 kB/174 kB 22%]                                       29% [Working]             Get:16 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libswresample2 arm64 7:3.4.11-0ubuntu0.1 [45.3 kB]
+29% [16 libswresample2 45.3 kB/45.3 kB 100%]                                            30% [Working]             Get:17 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libavcodec57 arm64 7:3.4.11-0ubuntu0.1 [4078 kB]
+30% [17 libavcodec57 0 B/4078 kB 0%]                                    53% [Working]             Get:18 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libavformat57 arm64 7:3.4.11-0ubuntu0.1 [842 kB]
+53% [18 libavformat57 63.7 kB/842 kB 8%]                                        58% [Working]             Get:19 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libavresample3 arm64 7:3.4.11-0ubuntu0.1 [39.1 kB]
+59% [19 libavresample3 39.1 kB/39.1 kB 100%]                                            59% [Working]             Get:20 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libpostproc54 arm64 7:3.4.11-0ubuntu0.1 [33.4 kB]
+59% [20 libpostproc54 33.1 kB/33.4 kB 99%]                                          Get:21 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libswscale4 arm64 7:3.4.11-0ubuntu0.1 [116 kB]
+                                          Get:22 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libavfilter6 arm64 7:3.4.11-0ubuntu0.1 [734 kB]
+                                          62% [22 libavfilter6 65.5 kB/734 kB 9%]                                       Get:23 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 libcdio-cdda2 arm64 10.2+0.94+2-2build1 [15.4 kB]
+66% [23 libcdio-cdda2 15.4 kB/15.4 kB 100%]                                           67% [Waiting for headers]                         Get:24 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 libcdio-paranoia2 arm64 10.2+0.94+2-2build1 [14.8 kB]
+68% [Waiting for headers]                         Get:25 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libsdl2-2.0-0 arm64 2.0.8+dfsg1-1ubuntu1.18.04.4 [307 kB]
+68% [25 libsdl2-2.0-0 36.9 kB/307 kB 12%]                                         70% [Working]             Get:26 http://ports.ubuntu.com/ubuntu-ports bionic/main arm64 libxv1 arm64 2:1.0.11-1 [9736 B]
+70% [26 libxv1 9736 B/9736 B 100%]                                  71% [Waiting for headers]                         Get:27 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 libavdevice57 arm64 7:3.4.11-0ubuntu0.1 [67.3 kB]
+71% [27 libavdevice57 16.4 kB/67.3 kB 24%]                                          72% [Working]             Get:28 http://ports.ubuntu.com/ubuntu-ports bionic-updates/universe arm64 ffmpeg arm64 7:3.4.11-0ubuntu0.1 [1560 kB]
+72% [28 ffmpeg 5792 B/1560 kB 0%]                                 81% [Working]             Get:29 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 git arm64 1:2.17.1-1ubuntu0.18 [3008 kB]
+81% [29 git 53.5 kB/3008 kB 2%]                               98% [Working]             Get:30 http://ports.ubuntu.com/ubuntu-ports bionic/universe arm64 python3-usb all 1.0.0-1 [37.6 kB]
+99% [30 python3-usb 37.6 kB/37.6 kB 100%]                                         99% [Working]             Get:31 http://ports.ubuntu.com/ubuntu-ports bionic-updates/main arm64 rfkill arm64 2.31.1-0.4ubuntu3.7 [22.2 kB]
+99% [31 rfkill 21.1 kB/22.2 kB 95%]                                   100% [Working]              Fetched 14.3 MB in 1s (10.9 MB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libxss1:arm64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 38057 files and directories currently installed.)
+Preparing to unpack .../00-libxss1_1%3a1.2.2-1_arm64.deb ...
+Unpacking libxss1:arm64 (1:1.2.2-1) ...
+Preparing to unpack .../01-libdbus-1-3_1.12.2-1ubuntu1.4_arm64.deb ...
+Unpacking libdbus-1-3:arm64 (1.12.2-1ubuntu1.4) over (1.12.2-1ubuntu1.2) ...
+Selecting previously unselected package dbus.
+Preparing to unpack .../02-dbus_1.12.2-1ubuntu1.4_arm64.deb ...
+Unpacking dbus (1.12.2-1ubuntu1.4) ...
+Selecting previously unselected package kmod.
+Preparing to unpack .../03-kmod_24-1ubuntu3.5_arm64.deb ...
+Unpacking kmod (24-1ubuntu3.5) ...
+Selecting previously unselected package libnewt0.52:arm64.
+Preparing to unpack .../04-libnewt0.52_0.52.20-1ubuntu1_arm64.deb ...
+Unpacking libnewt0.52:arm64 (0.52.20-1ubuntu1) ...
+Selecting previously unselected package libpopt0:arm64.
+Preparing to unpack .../05-libpopt0_1.16-11_arm64.deb ...
+Unpacking libpopt0:arm64 (1.16-11) ...
+Selecting previously unselected package whiptail.
+Preparing to unpack .../06-whiptail_0.52.20-1ubuntu1_arm64.deb ...
+Unpacking whiptail (0.52.20-1ubuntu1) ...
+Selecting previously unselected package usbutils.
+Preparing to unpack .../07-usbutils_1%3a007-4build1_arm64.deb ...
+Unpacking usbutils (1:007-4build1) ...
+Selecting previously unselected package libfftw3-single3:arm64.
+Preparing to unpack .../08-libfftw3-single3_3.3.7-1_arm64.deb ...
+Unpacking libfftw3-single3:arm64 (3.3.7-1) ...
+Selecting previously unselected package alsa-utils.
+Preparing to unpack .../09-alsa-utils_1.1.3-1ubuntu1_arm64.deb ...
+Unpacking alsa-utils (1.1.3-1ubuntu1) ...
+Selecting previously unselected package bluez.
+Preparing to unpack .../10-bluez_5.48-0ubuntu3.9_arm64.deb ...
+Unpacking bluez (5.48-0ubuntu3.9) ...
+Selecting previously unselected package bluetooth.
+Preparing to unpack .../11-bluetooth_5.48-0ubuntu3.9_all.deb ...
+Unpacking bluetooth (5.48-0ubuntu3.9) ...
+Selecting previously unselected package libcurl4:arm64.
+Preparing to unpack .../12-libcurl4_7.58.0-2ubuntu3.24_arm64.deb ...
+Unpacking libcurl4:arm64 (7.58.0-2ubuntu3.24) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../13-curl_7.58.0-2ubuntu3.24_arm64.deb ...
+Unpacking curl (7.58.0-2ubuntu3.24) ...
+Preparing to unpack .../14-libavutil55_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libavutil55:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Preparing to unpack .../15-libswresample2_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libswresample2:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Preparing to unpack .../16-libavcodec57_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libavcodec57:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Preparing to unpack .../17-libavformat57_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libavformat57:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Preparing to unpack .../18-libavresample3_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libavresample3:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Preparing to unpack .../19-libpostproc54_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libpostproc54:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Preparing to unpack .../20-libswscale4_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libswscale4:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Preparing to unpack .../21-libavfilter6_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libavfilter6:arm64 (7:3.4.11-0ubuntu0.1) over (7:3.4.8-0ubuntu0.2) ...
+Selecting previously unselected package libcdio-cdda2:arm64.
+Preparing to unpack .../22-libcdio-cdda2_10.2+0.94+2-2build1_arm64.deb ...
+Unpacking libcdio-cdda2:arm64 (10.2+0.94+2-2build1) ...
+Selecting previously unselected package libcdio-paranoia2:arm64.
+Preparing to unpack .../23-libcdio-paranoia2_10.2+0.94+2-2build1_arm64.deb ...
+Unpacking libcdio-paranoia2:arm64 (10.2+0.94+2-2build1) ...
+Selecting previously unselected package libsdl2-2.0-0:arm64.
+Preparing to unpack .../24-libsdl2-2.0-0_2.0.8+dfsg1-1ubuntu1.18.04.4_arm64.deb ...
+Unpacking libsdl2-2.0-0:arm64 (2.0.8+dfsg1-1ubuntu1.18.04.4) ...
+Selecting previously unselected package libxv1:arm64.
+Preparing to unpack .../25-libxv1_2%3a1.0.11-1_arm64.deb ...
+Unpacking libxv1:arm64 (2:1.0.11-1) ...
+Selecting previously unselected package libavdevice57:arm64.
+Preparing to unpack .../26-libavdevice57_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking libavdevice57:arm64 (7:3.4.11-0ubuntu0.1) ...
+Selecting previously unselected package ffmpeg.
+Preparing to unpack .../27-ffmpeg_7%3a3.4.11-0ubuntu0.1_arm64.deb ...
+Unpacking ffmpeg (7:3.4.11-0ubuntu0.1) ...
+Preparing to unpack .../28-git_1%3a2.17.1-1ubuntu0.18_arm64.deb ...
+Unpacking git (1:2.17.1-1ubuntu0.18) over (1:2.17.1-1ubuntu0.9) ...
+Selecting previously unselected package python3-usb.
+Preparing to unpack .../29-python3-usb_1.0.0-1_all.deb ...
+Unpacking python3-usb (1.0.0-1) ...
+Selecting previously unselected package rfkill.
+Preparing to unpack .../30-rfkill_2.31.1-0.4ubuntu3.7_arm64.deb ...
+Unpacking rfkill (2.31.1-0.4ubuntu3.7) ...
+Setting up libpopt0:arm64 (1.16-11) ...
+Setting up kmod (24-1ubuntu3.5) ...
+Setting up python3-usb (1.0.0-1) ...
+Setting up libavutil55:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up libxss1:arm64 (1:1.2.2-1) ...
+Setting up libcurl4:arm64 (7.58.0-2ubuntu3.24) ...
+Setting up libcdio-cdda2:arm64 (10.2+0.94+2-2build1) ...
+Setting up usbutils (1:007-4build1) ...
+Setting up libswresample2:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up libsdl2-2.0-0:arm64 (2.0.8+dfsg1-1ubuntu1.18.04.4) ...
+Setting up libswscale4:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up libcdio-paranoia2:arm64 (10.2+0.94+2-2build1) ...
+Setting up libpostproc54:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up libfftw3-single3:arm64 (3.3.7-1) ...
+Setting up libxv1:arm64 (2:1.0.11-1) ...
+Setting up libnewt0.52:arm64 (0.52.20-1ubuntu1) ...
+update-alternatives: using /etc/newt/palette.ubuntu to provide /etc/newt/palette (newt-palette) in auto mode
+Setting up rfkill (2.31.1-0.4ubuntu3.7) ...
+Setting up git (1:2.17.1-1ubuntu0.18) ...
+Setting up libdbus-1-3:arm64 (1.12.2-1ubuntu1.4) ...
+Setting up libavresample3:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up curl (7.58.0-2ubuntu3.24) ...
+Setting up whiptail (0.52.20-1ubuntu1) ...
+Setting up libavcodec57:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up alsa-utils (1.1.3-1ubuntu1) ...
+Setting up dbus (1.12.2-1ubuntu1.4) ...
+Setting up bluez (5.48-0ubuntu3.9) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of force-reload.
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libavformat57:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up libavfilter6:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up bluetooth (5.48-0ubuntu3.9) ...
+Setting up libavdevice57:arm64 (7:3.4.11-0ubuntu0.1) ...
+Setting up ffmpeg (7:3.4.11-0ubuntu0.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvidia-glcore.so.418.00 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvisp_utils.so is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvidia-tls.so.418.00 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvidia-glsi.so.418.00 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvidia-glvkspirv.so.418.00 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvpva.so is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvcuvidv4l2.so is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvidia-eglcore.so.418.00 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libv4l2_nvcuvidvideocodec.so is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvidia-rmapi-tegra.so.418.00 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/aarch64-linux-gnu/tegra/libnvcapture.so is empty, not checked.
+Processing triggers for dbus (1.12.2-1ubuntu1.4) ...
+=== Audio devices ===
+**** List of CAPTURE Hardware Devices ****
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 0: ADMAIF1 CIF ADMAIF1-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 1: ADMAIF2 CIF ADMAIF2-1 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 2: ADMAIF3 CIF ADMAIF3-2 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 3: ADMAIF4 CIF ADMAIF4-3 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 4: ADMAIF5 CIF ADMAIF5-4 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 5: ADMAIF6 CIF ADMAIF6-5 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 6: ADMAIF7 CIF ADMAIF7-6 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 7: ADMAIF8 CIF ADMAIF8-7 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 8: ADMAIF9 CIF ADMAIF9-8 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: tegrasndt210ref [tegra-snd-t210ref-mobile-rt565x], device 9: ADMAIF10 CIF ADMAIF10-9 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 2: ArrayUAC10 [ReSpeaker 4 Mic Array (UAC1.0)], device 0: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+=== USB devices, for ReSpeaker DOA control ===
+Bus 002 Device 002: ID 0bda:0411 Realtek Semiconductor Corp. 
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 8087:0a2b Intel Corp. 
+Bus 001 Device 007: ID 33fa:0001  
+Bus 001 Device 005: ID 2886:0018  
+Bus 001 Device 008: ID 30fa:1040  
+Bus 001 Device 006: ID 3554:fa09  
+Bus 001 Device 004: ID 214b:7250  
+Bus 001 Device 002: ID 0bda:5411 Realtek Semiconductor Corp. 
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+=== Bluetooth adapter ===
+hci1:	Type: Primary  Bus: USB
+	BD Address: 04:7F:0E:90:11:01  ACL MTU: 1021:9  SCO MTU: 255:4
+	DOWN 
+	RX bytes:2581 acl:0 sco:0 events:124 errors:0
+	TX bytes:6897 acl:0 sco:0 commands:125 errors:0
+	Features: 0xbf 0xee 0xcd 0xfe 0xdb 0xff 0x7b 0x87
+	Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV3 
+	Link policy: RSWITCH SNIFF 
+	Link mode: SLAVE ACCEPT 
+
+hci0:	Type: Primary  Bus: USB
+	BD Address: 74:D8:3E:48:1F:F1  ACL MTU: 1021:4  SCO MTU: 96:6
+	UP RUNNING PSCAN ISCAN 
+	RX bytes:34504 acl:341 sco:0 events:3239 errors:0
+	TX bytes:623190 acl:368 sco:0 commands:2698 errors:0
+	Features: 0xff 0xfe 0x0f 0xfe 0xdb 0xff 0x7b 0x87
+	Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+	Link policy: RSWITCH HOLD SNIFF 
+	Link mode: SLAVE ACCEPT 
+	Name: 'EdgeAudio-Jetson'
+	Class: 0x00010c
+	Service Classes: Unspecified
+	Device Class: Computer, Laptop
+	HCI Version: 4.2 (0x8)  Revision: 0x100
+	LMP Version: 4.2 (0x8)  Subversion: 0x100
+	Manufacturer: Intel Corp. (2)
+
+=== Start Bluetooth bridge + DOA + EfficientAT realtime inference ===
+Preferred Bluetooth Classic RFCOMM/SPP channel: 3
+Minimum displayed dB: 30 dB
+North offset: 0 degrees
+RFCOMM bind address: 74:D8:3E:48:1F:F1
+[BT] SDP Serial Port advertised on RFCOMM channel 3
+[BT] RFCOMM/SPP server started
+[BT] adapter=hci0 channel=3 bind_addr=00:00:00:00:00:00
+[BT] payload format: one JSON object per line
+[RUN] starting inference command:
+[RUN] python3 -u jetson_live.py --device plughw:2,0 --model_name mn04_as --rate 16000 --channels 6 --channel-index 0 --seconds 2 --topk 5 --threshold 0.10 --min-db 30 --db-offset 80
+[DOA] ReSpeaker DOA reader enabled.
+device: cuda
+model: mn04_as
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+min-db: 30.0 dB
+db display rule: display_dB = dBFS + 80.0
+Ctrl+C to stop
+------------------------------------------------------------
+MN(
+  (features): Sequential(
+    (0): ConvNormActivation(
+      (0): Conv2d(1, 8, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(8, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      (2): Hardswish()
+    )
+    (1): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(8, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=8, bias=False)
+          (1): BatchNorm2d(8, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(8, 8, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(8, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (2): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(8, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(24, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(24, 24, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=24, bias=False)
+          (1): BatchNorm2d(24, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (2): ConvNormActivation(
+          (0): Conv2d(24, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (3): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(16, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (2): ConvNormActivation(
+          (0): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (4): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(16, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(32, 32, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2), groups=32, bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=32, out_features=8, bias=True)
+              (fc2): Linear(in_features=8, out_features=32, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (5): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(16, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(48, 48, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=48, bias=False)
+          (1): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=48, out_features=16, bias=True)
+              (fc2): Linear(in_features=16, out_features=48, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(48, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (6): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(16, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(48, 48, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=48, bias=False)
+          (1): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=48, out_features=16, bias=True)
+              (fc2): Linear(in_features=16, out_features=48, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(48, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (7): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(16, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=96, bias=False)
+          (1): BatchNorm2d(96, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConvNormActivation(
+          (0): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (8): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(32, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(80, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=80, bias=False)
+          (1): BatchNorm2d(80, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConvNormActivation(
+          (0): Conv2d(80, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (9): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(32, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(72, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=72, bias=False)
+          (1): BatchNorm2d(72, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConvNormActivation(
+          (0): Conv2d(72, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (10): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(32, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(72, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=72, bias=False)
+          (1): BatchNorm2d(72, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConvNormActivation(
+          (0): Conv2d(72, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (11): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False)
+          (1): BatchNorm2d(192, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=192, out_features=48, bias=True)
+              (fc2): Linear(in_features=48, out_features=192, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (12): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(48, 272, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(272, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(272, 272, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=272, bias=False)
+          (1): BatchNorm2d(272, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=272, out_features=72, bias=True)
+              (fc2): Linear(in_features=72, out_features=272, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(272, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(48, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (13): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(48, 272, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(272, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(272, 272, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2), groups=272, bias=False)
+          (1): BatchNorm2d(272, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=272, out_features=72, bias=True)
+              (fc2): Linear(in_features=72, out_features=272, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(272, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (14): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(64, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(384, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(384, 384, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=384, bias=False)
+          (1): BatchNorm2d(384, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=384, out_features=96, bias=True)
+              (fc2): Linear(in_features=96, out_features=384, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(384, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (15): InvertedResidual(
+      (block): Sequential(
+        (0): ConvNormActivation(
+          (0): Conv2d(64, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(384, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (1): ConvNormActivation(
+          (0): Conv2d(384, 384, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=384, bias=False)
+          (1): BatchNorm2d(384, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+          (2): Hardswish()
+        )
+        (2): ConcurrentSEBlock(
+          (conc_se_layers): ModuleList(
+            (0): SqueezeExcitation(
+              (fc1): Linear(in_features=384, out_features=96, bias=True)
+              (fc2): Linear(in_features=96, out_features=384, bias=True)
+              (activation): ReLU()
+              (scale_activation): Sigmoid()
+            )
+          )
+        )
+        (3): ConvNormActivation(
+          (0): Conv2d(384, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (16): ConvNormActivation(
+      (0): Conv2d(64, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): BatchNorm2d(384, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      (2): Hardswish()
+    )
+  )
+  (classifier): Sequential(
+    (0): AdaptiveAvgPool2d(output_size=1)
+    (1): Flatten(start_dim=1, end_dim=-1)
+    (2): Linear(in_features=384, out_features=512, bias=True)
+    (3): Hardswish()
+    (4): Dropout(p=0.2, inplace=True)
+    (5): Linear(in_features=512, out_features=527, bias=True)
+  )
+)
+Warning: FMAX is None setting to 15000 
+[03:44:26] infer=117.731s total=120.880s db=47.3dB | Fowl 0.223 / Chicken, rooster 0.207 / Bird 0.179 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:44:26+0000","time":"03:44:26","base_label":"Fowl","label":"Fowl [남]","score":0.223,"infer_sec":117.731,"total_sec":120.88,"db":47.3,"display_db":47.3,"min_db":30.0,"level":"info","direction":"남","doa_status":"enabled","items":[{"label":"Fowl [남]","score":0.223},{"label":"Chicken, rooster","score":0.207},{"label":"Bird","score":0.179}],"raw":"[03:44:26] infer=117.731s total=120.880s db=47.3dB | Fowl 0.223 / Chicken, rooster 0.207 / Bird 0.179 | DOA 남"}
+[03:45:13] infer=35.001s total=47.216s db=51.2dB | Speech 0.575 / Child speech, kid speaking 0.176 / Animal 0.127 / Cat 0.119 / Domestic animals, pets 0.109 | DOA 동
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:13+0000","time":"03:45:13","base_label":"Speech","label":"Speech [동]","score":0.575,"infer_sec":35.001,"total_sec":47.216,"db":51.2,"display_db":51.2,"min_db":30.0,"level":"info","direction":"동","doa_status":"enabled","items":[{"label":"Speech [동]","score":0.575},{"label":"Child speech, kid speaking","score":0.176},{"label":"Animal","score":0.127},{"label":"Cat","score":0.119},{"label":"Domestic animals, pets","score":0.109}],"raw":"[03:45:13] infer=35.001s total=47.216s db=51.2dB | Speech 0.575 / Child speech, kid speaking 0.176 / Animal 0.127 / Cat 0.119 / Domestic animals, pets 0.109 | DOA 동"}
+[03:45:28] infer=1.740s total=15.245s db=52.6dB | Speech 0.759 | DOA 동
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:28+0000","time":"03:45:28","base_label":"Speech","label":"Speech [동]","score":0.759,"infer_sec":1.74,"total_sec":15.245,"db":52.6,"display_db":52.6,"min_db":30.0,"level":"info","direction":"동","doa_status":"enabled","items":[{"label":"Speech [동]","score":0.759}],"raw":"[03:45:28] infer=1.740s total=15.245s db=52.6dB | Speech 0.759 | DOA 동"}
+[03:45:31] infer=0.063s total=2.357s db=53.3dB | Speech 0.786 / Female speech, woman speaking 0.108 | DOA 동
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:31+0000","time":"03:45:31","base_label":"Speech","label":"Speech [동]","score":0.786,"infer_sec":0.063,"total_sec":2.357,"db":53.3,"display_db":53.3,"min_db":30.0,"level":"info","direction":"동","doa_status":"enabled","items":[{"label":"Speech [동]","score":0.786},{"label":"Female speech, woman speaking","score":0.108}],"raw":"[03:45:31] infer=0.063s total=2.357s db=53.3dB | Speech 0.786 / Female speech, woman speaking 0.108 | DOA 동"}
+[03:45:33] infer=0.059s total=2.345s db=68.2dB | Fire alarm 0.731 / Buzzer 0.304 / Alarm 0.297 / Siren 0.224 / Civil defense siren 0.106 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:33+0000","time":"03:45:33","base_label":"Fire alarm","label":"Fire alarm [남]","score":0.731,"infer_sec":0.059,"total_sec":2.345,"db":68.2,"display_db":68.2,"min_db":30.0,"level":"danger","direction":"남","doa_status":"enabled","items":[{"label":"Fire alarm [남]","score":0.731},{"label":"Buzzer","score":0.304},{"label":"Alarm","score":0.297},{"label":"Siren","score":0.224},{"label":"Civil defense siren","score":0.106}],"raw":"[03:45:33] infer=0.059s total=2.345s db=68.2dB | Fire alarm 0.731 / Buzzer 0.304 / Alarm 0.297 / Siren 0.224 / Civil defense siren 0.106 | DOA 남"}
+[03:45:35] infer=0.058s total=2.339s db=57.8dB | Music 0.626 / Musical instrument 0.225 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:35+0000","time":"03:45:35","base_label":"Music","label":"Music [남]","score":0.626,"infer_sec":0.058,"total_sec":2.339,"db":57.8,"display_db":57.8,"min_db":30.0,"level":"info","direction":"남","doa_status":"enabled","items":[{"label":"Music [남]","score":0.626},{"label":"Musical instrument","score":0.225}],"raw":"[03:45:35] infer=0.058s total=2.339s db=57.8dB | Music 0.626 / Musical instrument 0.225 | DOA 남"}
+[03:45:38] infer=0.069s total=2.373s db=51.9dB | Siren 0.787 / Civil defense siren 0.433 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:38+0000","time":"03:45:38","base_label":"Siren","label":"Siren [남]","score":0.787,"infer_sec":0.069,"total_sec":2.373,"db":51.9,"display_db":51.9,"min_db":30.0,"level":"danger","direction":"남","doa_status":"enabled","items":[{"label":"Siren [남]","score":0.787},{"label":"Civil defense siren","score":0.433}],"raw":"[03:45:38] infer=0.069s total=2.373s db=51.9dB | Siren 0.787 / Civil defense siren 0.433 | DOA 남"}
+[03:45:40] infer=0.068s total=2.355s db=56.4dB | Siren 0.659 / Civil defense siren 0.330 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:40+0000","time":"03:45:40","base_label":"Siren","label":"Siren [남]","score":0.659,"infer_sec":0.068,"total_sec":2.355,"db":56.4,"display_db":56.4,"min_db":30.0,"level":"danger","direction":"남","doa_status":"enabled","items":[{"label":"Siren [남]","score":0.659},{"label":"Civil defense siren","score":0.33}],"raw":"[03:45:40] infer=0.068s total=2.355s db=56.4dB | Siren 0.659 / Civil defense siren 0.330 | DOA 남"}
+[03:45:42] infer=0.058s total=2.332s db=50.5dB | Siren 0.518 / Speech 0.284 / Civil defense siren 0.184 / Emergency vehicle 0.141 | DOA 동
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:42+0000","time":"03:45:42","base_label":"Siren","label":"Siren [동]","score":0.518,"infer_sec":0.058,"total_sec":2.332,"db":50.5,"display_db":50.5,"min_db":30.0,"level":"danger","direction":"동","doa_status":"enabled","items":[{"label":"Siren [동]","score":0.518},{"label":"Speech","score":0.284},{"label":"Civil defense siren","score":0.184},{"label":"Emergency vehicle","score":0.141}],"raw":"[03:45:42] infer=0.058s total=2.332s db=50.5dB | Siren 0.518 / Speech 0.284 / Civil defense siren 0.184 / Emergency vehicle 0.141 | DOA 동"}
+[03:45:45] infer=0.055s total=2.345s db=53.7dB | Siren 0.632 / Civil defense siren 0.523 / Speech 0.217 | DOA 북
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:45+0000","time":"03:45:45","base_label":"Siren","label":"Siren [북]","score":0.632,"infer_sec":0.055,"total_sec":2.345,"db":53.7,"display_db":53.7,"min_db":30.0,"level":"danger","direction":"북","doa_status":"enabled","items":[{"label":"Siren [북]","score":0.632},{"label":"Civil defense siren","score":0.523},{"label":"Speech","score":0.217}],"raw":"[03:45:45] infer=0.055s total=2.345s db=53.7dB | Siren 0.632 / Civil defense siren 0.523 / Speech 0.217 | DOA 북"}
+[03:45:47] infer=0.056s total=2.336s db=58.4dB | Siren 0.673 / Civil defense siren 0.553 / Speech 0.121 | DOA 서
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:47+0000","time":"03:45:47","base_label":"Siren","label":"Siren [서]","score":0.673,"infer_sec":0.056,"total_sec":2.336,"db":58.4,"display_db":58.4,"min_db":30.0,"level":"danger","direction":"서","doa_status":"enabled","items":[{"label":"Siren [서]","score":0.673},{"label":"Civil defense siren","score":0.553},{"label":"Speech","score":0.121}],"raw":"[03:45:47] infer=0.056s total=2.336s db=58.4dB | Siren 0.673 / Civil defense siren 0.553 / Speech 0.121 | DOA 서"}
+[03:45:49] infer=0.058s total=2.342s db=49.6dB | Speech 0.556 / Siren 0.400 / Civil defense siren 0.382 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:49+0000","time":"03:45:49","base_label":"Speech","label":"Speech [남]","score":0.556,"infer_sec":0.058,"total_sec":2.342,"db":49.6,"display_db":49.6,"min_db":30.0,"level":"info","direction":"남","doa_status":"enabled","items":[{"label":"Speech [남]","score":0.556},{"label":"Siren","score":0.4},{"label":"Civil defense siren","score":0.382}],"raw":"[03:45:49] infer=0.058s total=2.342s db=49.6dB | Speech 0.556 / Siren 0.400 / Civil defense siren 0.382 | DOA 남"}
+[03:45:52] infer=0.068s total=2.350s db=55.6dB | Civil defense siren 0.659 / Siren 0.621 / Speech 0.179 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:52+0000","time":"03:45:52","base_label":"Civil defense siren","label":"Civil defense siren [남]","score":0.659,"infer_sec":0.068,"total_sec":2.35,"db":55.6,"display_db":55.6,"min_db":30.0,"level":"danger","direction":"남","doa_status":"enabled","items":[{"label":"Civil defense siren [남]","score":0.659},{"label":"Siren","score":0.621},{"label":"Speech","score":0.179}],"raw":"[03:45:52] infer=0.068s total=2.350s db=55.6dB | Civil defense siren 0.659 / Siren 0.621 / Speech 0.179 | DOA 남"}
+[03:45:54] infer=0.071s total=2.354s db=56.6dB | Siren 0.621 / Civil defense siren 0.556 / Speech 0.273 | DOA 북
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:54+0000","time":"03:45:54","base_label":"Siren","label":"Siren [북]","score":0.621,"infer_sec":0.071,"total_sec":2.354,"db":56.6,"display_db":56.6,"min_db":30.0,"level":"danger","direction":"북","doa_status":"enabled","items":[{"label":"Siren [북]","score":0.621},{"label":"Civil defense siren","score":0.556},{"label":"Speech","score":0.273}],"raw":"[03:45:54] infer=0.071s total=2.354s db=56.6dB | Siren 0.621 / Civil defense siren 0.556 / Speech 0.273 | DOA 북"}
+[03:45:56] infer=0.055s total=2.327s db=53.3dB | Speech 0.484 / Siren 0.208 / Civil defense siren 0.134 | DOA 서
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:56+0000","time":"03:45:56","base_label":"Speech","label":"Speech [서]","score":0.484,"infer_sec":0.055,"total_sec":2.327,"db":53.3,"display_db":53.3,"min_db":30.0,"level":"info","direction":"서","doa_status":"enabled","items":[{"label":"Speech [서]","score":0.484},{"label":"Siren","score":0.208},{"label":"Civil defense siren","score":0.134}],"raw":"[03:45:56] infer=0.055s total=2.327s db=53.3dB | Speech 0.484 / Siren 0.208 / Civil defense siren 0.134 | DOA 서"}
+[03:45:59] infer=0.055s total=2.325s db=42.3dB | Speech 0.837 / Music 0.419 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:45:59+0000","time":"03:45:59","base_label":"Speech","label":"Speech [남]","score":0.837,"infer_sec":0.055,"total_sec":2.325,"db":42.3,"display_db":42.3,"min_db":30.0,"level":"info","direction":"남","doa_status":"enabled","items":[{"label":"Speech [남]","score":0.837},{"label":"Music","score":0.419}],"raw":"[03:45:59] infer=0.055s total=2.325s db=42.3dB | Speech 0.837 / Music 0.419 | DOA 남"}
+[03:46:01] infer=0.058s total=2.330s db=47.4dB | Speech 0.665 / Female speech, woman speaking 0.107 | DOA 서
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:46:01+0000","time":"03:46:01","base_label":"Speech","label":"Speech [서]","score":0.665,"infer_sec":0.058,"total_sec":2.33,"db":47.4,"display_db":47.4,"min_db":30.0,"level":"info","direction":"서","doa_status":"enabled","items":[{"label":"Speech [서]","score":0.665},{"label":"Female speech, woman speaking","score":0.107}],"raw":"[03:46:01] infer=0.058s total=2.330s db=47.4dB | Speech 0.665 / Female speech, woman speaking 0.107 | DOA 서"}
+[03:46:03] infer=0.059s total=2.334s db=64.5dB | Speech 0.566 / Radio 0.125 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:46:03+0000","time":"03:46:03","base_label":"Speech","label":"Speech [남]","score":0.566,"infer_sec":0.059,"total_sec":2.334,"db":64.5,"display_db":64.5,"min_db":30.0,"level":"info","direction":"남","doa_status":"enabled","items":[{"label":"Speech [남]","score":0.566},{"label":"Radio","score":0.125}],"raw":"[03:46:03] infer=0.059s total=2.334s db=64.5dB | Speech 0.566 / Radio 0.125 | DOA 남"}
+[03:46:06] infer=0.060s total=2.337s db=56.1dB | Whistle 0.130 | DOA 남
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:46:06+0000","time":"03:46:06","base_label":"Whistle","label":"Whistle [남]","score":0.13,"infer_sec":0.06,"total_sec":2.337,"db":56.1,"display_db":56.1,"min_db":30.0,"level":"info","direction":"남","doa_status":"enabled","items":[{"label":"Whistle [남]","score":0.13}],"raw":"[03:46:06] infer=0.060s total=2.337s db=56.1dB | Whistle 0.130 | DOA 남"}
+[03:46:08] infer=0.058s total=2.334s db=35.4dB | Speech 0.130 | DOA 서
+[BT_JSON] {"type":"sound_result","status":"ok","source":"jetson_nano","sent_at":"2026-05-24T03:46:08+0000","time":"03:46:08","base_label":"Speech","label":"Speech [서]","score":0.13,"infer_sec":0.058,"total_sec":2.334,"db":35.4,"display_db":35.4,"min_db":30.0,"level":"info","direction":"서","doa_status":"enabled","items":[{"label":"Speech [서]","score":0.13}],"raw":"[03:46:08] infer=0.058s total=2.334s db=35.4dB | Speech 0.130 | DOA 서"}
+^C
+[RUN] stopped by user

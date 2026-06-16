@@ -1,0 +1,26 @@
+{
+  "total_files": 2000,
+  "mapped_files": 720,
+  "correct": 207,
+  "accuracy": 0.2875,
+  "mapped_categories": [
+    "cat",
+    "chainsaw",
+    "church_bells",
+    "clapping",
+    "clock_alarm",
+    "coughing",
+    "crying_baby",
+    "dog",
+    "fireworks",
+    "helicopter",
+    "laughing",
+    "rooster",
+    "sea_waves",
+    "siren",
+    "sneezing",
+    "thunderstorm",
+    "toilet_flush",
+    "vacuum_cleaner"
+  ]
+}

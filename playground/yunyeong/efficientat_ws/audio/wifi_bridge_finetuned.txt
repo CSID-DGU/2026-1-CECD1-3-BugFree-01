@@ -1,0 +1,937 @@
+Traceback (most recent call last):
+  File "jetson_live_finetuned.py", line 367, in <module>
+    main()
+  File "jetson_live_finetuned.py", line 307, in main
+    quiet=(not args.show_model),
+  File "jetson_live_finetuned.py", line 170, in load_finetuned_model
+    ckpt = safe_torch_load(checkpoint_path, map_location=torch.device("cpu"))
+  File "jetson_live_finetuned.py", line 55, in safe_torch_load
+    return torch.load(path, map_location=map_location, weights_only=False)
+  File "/usr/local/lib/python3.6/dist-packages/torch/serialization.py", line 594, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/usr/local/lib/python3.6/dist-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.6/dist-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/EfficientAT/checkpoints/best_model_jetson.pt'
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[05:19:19] infer=32.501s total=34.863s db=51.0dB | glass_break 0.897 | DOA 서
+[05:19:23] infer=0.924s total=4.389s db=56.0dB | scream 0.293 | DOA 서
+[05:19:26] infer=0.088s total=2.335s db=57.9dB | alarm 0.204 | DOA 서
+[05:19:28] infer=0.143s total=2.376s db=57.5dB | alarm 0.220 | DOA 서
+[05:19:31] infer=0.120s total=2.359s db=57.0dB | scream 0.249 | DOA 서
+[05:19:33] infer=0.182s total=2.410s db=56.6dB | cat_meow 0.644 | DOA 서
+[05:19:35] infer=0.156s total=2.391s db=54.4dB | scream 0.316 | DOA 서
+[05:19:40] infer=0.199s total=2.432s db=53.2dB | gunshot 0.422 | DOA 서
+[05:19:42] infer=0.164s total=2.403s db=51.5dB | water 0.348 | DOA 남
+[05:19:45] infer=0.095s total=2.330s db=50.3dB | alarm 0.475 | DOA 남
+[05:20:07] infer=0.151s total=2.395s db=51.3dB | scream 0.423 / cat_meow 0.303 | DOA 남
+[05:20:10] infer=0.184s total=2.417s db=51.7dB | cat_meow 0.960 | DOA 서
+[05:20:21] infer=0.092s total=2.320s db=65.7dB | cat_meow 0.942 | DOA 남
+[05:20:23] infer=0.115s total=2.356s db=52.8dB | cat_meow 0.935 | DOA 남
+[05:20:25] infer=0.128s total=2.362s db=53.4dB | cat_meow 0.993 | DOA 남
+[05:20:43] infer=0.101s total=2.328s db=54.8dB | dog_bark 0.973 | DOA 서
+[05:20:46] infer=0.177s total=2.411s db=49.6dB | dog_bark 0.988 | DOA 남
+[05:21:08] infer=0.119s total=2.350s db=57.6dB | baby_cry 0.622 / cat_meow 0.358 | DOA 남
+[05:21:10] infer=0.130s total=2.359s db=60.4dB | baby_cry 0.999 | DOA 남
+[05:21:13] infer=0.111s total=2.351s db=55.1dB | baby_cry 0.999 | DOA 남
+[05:21:15] infer=0.092s total=2.343s db=55.0dB | baby_cry 0.998 | DOA 서
+[05:21:18] infer=0.181s total=2.413s db=46.1dB | baby_cry 0.995 | DOA 서
+[05:21:27] infer=0.119s total=2.348s db=57.7dB | water 0.600 | DOA 남
+[05:21:29] infer=0.093s total=2.328s db=61.6dB | baby_cry 0.364 | DOA 서
+[05:21:31] infer=0.115s total=2.347s db=60.5dB | baby_cry 0.609 | DOA 동
+[05:21:58] infer=0.114s total=2.344s db=54.3dB | fire_alarm 0.427 / scream 0.319 | DOA 서
+[05:22:00] infer=0.117s total=2.347s db=55.2dB | fire_alarm 0.708 | DOA 남
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[11:52:44] infer=41.743s total=44.109s db=50.3dB | fire_alarm 0.662 / alarm 0.305 | DOA 서
+[11:52:55] infer=0.794s total=3.037s db=55.6dB | water 0.212 | DOA 서
+[11:52:57] infer=0.096s total=2.346s db=49.6dB | water 0.674 | DOA 서
+[11:53:00] infer=0.096s total=2.344s db=60.4dB | cat_meow 0.998 | DOA 서
+[11:53:04] infer=0.087s total=2.328s db=63.4dB | cat_meow 1.000 | DOA 서
+[11:53:09] infer=0.106s total=2.355s db=61.7dB | scream 0.615 | DOA 서
+[11:53:11] infer=0.106s total=2.353s db=51.5dB | scream 0.343 | DOA 서
+[11:53:14] infer=0.164s total=2.410s db=52.3dB | dog_bark 0.999 | DOA 서
+[11:53:16] infer=0.131s total=2.381s db=48.1dB | dog_bark 0.872 | DOA 서
+[11:53:18] infer=0.113s total=2.363s db=48.9dB | cat_meow 0.962 | DOA 동
+[11:53:21] infer=0.087s total=2.330s db=57.0dB | baby_cry 1.000 | DOA 동
+[11:53:23] infer=0.105s total=2.352s db=55.3dB | baby_cry 1.000 | DOA 서
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[12:02:17] infer=35.366s total=37.802s db=56.2dB | gunshot 0.874 | DOA 서 296°
+[12:02:26] infer=1.110s total=3.335s db=61.5dB | baby_cry 1.000 | DOA 남 185°
+[12:02:28] infer=0.108s total=2.345s db=57.5dB | baby_cry 0.999 | DOA 남 196°
+[12:02:31] infer=0.118s total=2.343s db=47.5dB | cat_meow 0.933 | DOA 남 203°
+[12:02:33] infer=0.088s total=2.313s db=46.2dB | cat_meow 0.993 | DOA 남 141°
+[12:02:37] infer=0.162s total=2.391s db=51.8dB | cat_meow 1.000 | DOA 동 126°
+[12:02:40] infer=0.088s total=2.316s db=63.1dB | cat_meow 0.998 | DOA 동 55°
+[12:02:44] infer=0.139s total=2.380s db=57.6dB | cat_meow 0.987 | DOA 동 50°
+[12:02:54] infer=0.295s total=2.532s db=55.4dB | cat_meow 0.984 | DOA 동 49°
+[12:02:56] infer=0.117s total=2.353s db=57.3dB | cat_meow 0.997 | DOA 동 48°
+[12:02:58] infer=0.094s total=2.318s db=53.8dB | cat_meow 0.999 | DOA 동 47°
+[12:03:03] infer=0.107s total=2.490s db=53.7dB | cat_meow 0.997 | DOA 동 90°
+[12:03:07] infer=0.087s total=2.316s db=50.0dB | cat_meow 0.418 / scream 0.392 | DOA 서 271°
+[12:03:10] infer=0.118s total=2.342s db=53.3dB | cat_meow 0.642 | DOA 서 278°
+[12:03:12] infer=0.181s total=2.425s db=56.8dB | cat_meow 0.922 | DOA 서 275°
+[12:03:15] infer=0.150s total=2.391s db=54.2dB | cat_meow 0.972 | DOA 서 275°
+[12:03:17] infer=0.090s total=2.317s db=55.1dB | cat_meow 0.848 | DOA 서 276°
+[12:03:19] infer=0.159s total=2.384s db=55.4dB | cat_meow 0.779 | DOA 서 278°
+[12:03:22] infer=0.133s total=2.361s db=48.1dB | cat_meow 0.803 | DOA 서 266°
+[12:03:24] infer=0.118s total=2.354s db=49.0dB | cat_meow 0.731 | DOA 서 303°
+[12:03:26] infer=0.084s total=2.309s db=48.4dB | cat_meow 0.921 | DOA 서 295°
+[12:03:29] infer=0.138s total=2.370s db=64.0dB | baby_cry 0.264 | DOA 남 198°
+[12:03:31] infer=0.092s total=2.320s db=62.1dB | alarm 0.257 | DOA 남 202°
+[12:03:33] infer=0.135s total=2.362s db=52.8dB | scream 0.460 | DOA 남 204°
+[12:03:36] infer=0.132s total=2.355s db=61.7dB | alarm 0.356 | DOA 남 212°
+[12:03:38] infer=0.086s total=2.320s db=56.1dB | cat_meow 0.949 | DOA 서 303°
+[12:03:40] infer=0.085s total=2.302s db=58.4dB | cat_meow 0.968 | DOA 서 300°
+[12:03:43] infer=0.174s total=2.402s db=57.3dB | cat_meow 0.989 | DOA 남 220°
+[12:03:45] infer=0.114s total=2.345s db=55.9dB | cat_meow 0.840 | DOA 서 228°
+[12:04:21] infer=0.113s total=2.337s db=53.7dB | scream 0.718 | DOA 서 305°
+[12:04:23] infer=0.117s total=2.351s db=49.0dB | cat_meow 0.376 / baby_cry 0.327 | DOA 서 305°
+[12:04:25] infer=0.120s total=2.352s db=57.7dB | dog_bark 1.000 | DOA 북 320°
+[12:04:28] infer=0.089s total=2.312s db=60.4dB | dog_bark 0.891 | DOA 북 328°
+[12:04:30] infer=0.105s total=2.337s db=62.7dB | dog_bark 0.550 / scream 0.404 | DOA 동 88°
+[12:04:41] infer=0.104s total=2.336s db=60.3dB | scream 0.509 / fire_alarm 0.330 | DOA 서 231°
+[12:04:44] infer=0.137s total=2.377s db=56.6dB | fire_alarm 0.700 | DOA 남 216°
+[12:04:46] infer=0.082s total=2.313s db=47.9dB | cat_meow 0.495 | DOA 남 217°
+[12:04:48] infer=0.115s total=2.342s db=60.0dB | alarm 0.663 | DOA 서 236°
+[12:04:51] infer=0.088s total=2.318s db=56.9dB | cat_meow 0.959 | DOA 서 236°
+[12:04:53] infer=0.091s total=2.316s db=50.5dB | cat_meow 0.988 | DOA 서 240°
+[12:04:55] infer=0.115s total=2.344s db=51.2dB | cat_meow 0.977 | DOA 서 237°
+[12:04:58] infer=0.092s total=2.316s db=48.5dB | cat_meow 0.954 | DOA 북 321°
+[12:05:00] infer=0.210s total=2.428s db=56.7dB | alarm 0.780 | DOA 북 324°
+[12:05:02] infer=0.115s total=2.351s db=56.7dB | cat_meow 0.964 | DOA 북 325°
+[12:05:05] infer=0.147s total=2.384s db=52.6dB | cat_meow 0.990 | DOA 북 329°
+[12:05:07] infer=0.093s total=2.325s db=56.3dB | cat_meow 0.996 | DOA 북 326°
+[12:05:09] infer=0.229s total=2.456s db=54.4dB | cat_meow 0.970 | DOA 북 322°
+[12:05:12] infer=0.091s total=2.321s db=53.0dB | cat_meow 0.895 | DOA 서 305°
+[12:05:14] infer=0.138s total=2.361s db=62.3dB | baby_cry 0.371 | DOA 북 334°
+[12:05:17] infer=0.139s total=2.367s db=61.1dB | gunshot 0.257 | DOA 북 349°
+[12:05:19] infer=0.101s total=2.339s db=50.1dB | scream 0.352 | DOA 북 346°
+[12:05:21] infer=0.141s total=2.390s db=47.4dB | gunshot 0.311 | DOA 서 289°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[12:13:54] infer=29.215s total=31.558s db=60.2dB | alarm 0.414 | DOA 서 246°
+[12:13:58] infer=0.787s total=4.200s db=46.5dB | alarm 0.535 | DOA 서 246°
+[12:14:14] infer=0.234s total=2.468s db=53.3dB | fire_alarm 0.644 | DOA 북 340°
+[12:14:16] infer=0.115s total=2.356s db=49.0dB | fire_alarm 0.680 | DOA 북 331°
+[12:14:21] infer=0.118s total=2.346s db=52.0dB | cat_meow 0.638 | DOA 남 211°
+[12:14:23] infer=0.111s total=2.340s db=56.3dB | cat_meow 0.430 | DOA 남 218°
+[12:14:25] infer=0.093s total=2.322s db=57.6dB | cat_meow 0.908 | DOA 북 35°
+[12:14:28] infer=0.114s total=2.347s db=58.2dB | baby_cry 1.000 | DOA 북 35°
+[12:14:30] infer=0.119s total=2.349s db=55.5dB | baby_cry 1.000 | DOA 북 35°
+[12:14:32] infer=0.100s total=2.328s db=57.7dB | baby_cry 1.000 | DOA 북 35°
+[12:14:35] infer=0.141s total=2.384s db=55.1dB | baby_cry 1.000 | DOA 북 33°
+[12:14:37] infer=0.121s total=2.362s db=55.3dB | baby_cry 1.000 | DOA 북 21°
+[12:14:39] infer=0.146s total=2.379s db=48.5dB | cat_meow 0.770 | DOA 서 296°
+[12:14:44] infer=0.100s total=2.330s db=59.5dB | scream 0.903 | DOA 남 215°
+[12:14:46] infer=0.175s total=2.416s db=49.1dB | dog_bark 0.467 / scream 0.336 | DOA 서 248°
+[12:14:49] infer=0.087s total=2.322s db=55.5dB | dog_bark 0.981 | DOA 서 236°
+[12:14:51] infer=0.104s total=2.338s db=59.0dB | dog_bark 0.867 | DOA 서 233°
+[12:14:53] infer=0.118s total=2.359s db=47.2dB | dog_bark 0.998 | DOA 서 233°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[23:52:13] infer=51.874s total=55.112s db=49.3dB | baby_cry 0.872 | DOA 동 61°
+[23:52:18] infer=1.058s total=4.618s db=55.7dB | scream 0.284 | DOA 동 61°
+[23:52:20] infer=0.115s total=2.368s db=55.0dB | baby_cry 0.544 | DOA 동 60°
+[23:52:22] infer=0.086s total=2.333s db=55.9dB | baby_cry 0.782 | DOA 동 61°
+[23:52:36] infer=0.095s total=2.338s db=51.6dB | water 0.308 | DOA 북 28°
+[23:52:38] infer=0.149s total=2.398s db=53.0dB | gunshot 0.433 / water 0.336 | DOA 북 26°
+[23:52:47] infer=0.119s total=2.372s db=55.1dB | water 0.420 | DOA 북 23°
+[23:52:50] infer=0.177s total=2.429s db=45.3dB | gunshot 0.482 | DOA 북 22°
+[23:52:54] infer=0.126s total=2.368s db=58.8dB | water 0.483 | DOA 북 22°
+[23:53:03] infer=0.100s total=2.343s db=57.3dB | water 0.307 | DOA 북 22°
+[23:53:06] infer=0.093s total=2.332s db=60.8dB | water 0.696 | DOA 북 22°
+[23:53:08] infer=0.113s total=2.356s db=53.5dB | water 0.382 | DOA 북 22°
+[23:53:15] infer=0.238s total=2.501s db=60.6dB | water 0.648 | DOA 북 23°
+[23:53:17] infer=0.176s total=2.428s db=54.0dB | water 0.419 | DOA 북 22°
+[23:53:47] infer=0.144s total=2.397s db=67.0dB | dog_bark 0.489 | DOA 동 62°
+[23:53:49] infer=0.089s total=2.333s db=66.1dB | dog_bark 0.989 | DOA 동 60°
+[23:53:51] infer=0.084s total=2.330s db=58.0dB | dog_bark 0.968 | DOA 동 61°
+[23:53:58] infer=0.123s total=2.366s db=45.0dB | gunshot 0.484 | DOA 동 61°
+[23:54:00] infer=0.118s total=2.358s db=50.9dB | water 0.342 | DOA 동 58°
+[23:54:03] infer=0.189s total=2.434s db=55.4dB | water 0.229 | DOA 동 59°
+[23:54:05] infer=0.089s total=2.339s db=58.1dB | water 0.607 | DOA 동 60°
+[23:54:08] infer=0.102s total=2.345s db=53.6dB | water 0.716 | DOA 동 60°
+[23:54:10] infer=0.108s total=2.346s db=54.4dB | glass_break 0.341 | DOA 동 60°
+[23:54:12] infer=0.089s total=2.330s db=50.8dB | water 0.836 | DOA 북 31°
+[23:54:15] infer=0.086s total=2.337s db=52.6dB | water 0.650 | DOA 동 57°
+[23:54:17] infer=0.112s total=2.366s db=51.6dB | water 0.666 | DOA 동 59°
+[23:54:19] infer=0.117s total=2.367s db=58.1dB | glass_break 0.574 | DOA 동 60°
+[23:54:22] infer=0.143s total=2.391s db=52.0dB | glass_break 0.777 | DOA 동 60°
+[23:54:24] infer=0.095s total=2.342s db=55.1dB | glass_break 0.475 | DOA 동 60°
+[23:54:26] infer=0.091s total=2.334s db=53.8dB | gunshot 0.460 | DOA 동 60°
+[23:54:31] infer=0.093s total=2.335s db=54.5dB | fire_alarm 0.682 | DOA 동 60°
+[23:54:33] infer=0.291s total=2.549s db=56.3dB | fire_alarm 0.699 | DOA 동 60°
+[23:54:36] infer=0.113s total=2.368s db=53.3dB | fire_alarm 0.592 | DOA 동 58°
+[23:54:38] infer=0.094s total=2.340s db=59.1dB | water 0.896 | DOA 동 60°
+[23:54:41] infer=0.100s total=2.344s db=61.0dB | baby_cry 0.342 | DOA 동 60°
+[23:54:43] infer=0.095s total=2.347s db=59.8dB | scream 0.926 | DOA 동 60°
+[23:54:45] infer=0.137s total=2.384s db=55.8dB | scream 0.963 | DOA 동 65°
+[23:54:48] infer=0.189s total=2.436s db=53.0dB | scream 0.665 | DOA 동 63°
+[23:54:50] infer=0.111s total=2.364s db=56.7dB | fire_alarm 0.847 | DOA 동 61°
+[23:54:52] infer=0.094s total=2.346s db=54.8dB | fire_alarm 0.760 | DOA 동 61°
+[23:54:55] infer=0.170s total=2.421s db=53.1dB | fire_alarm 0.836 | DOA 동 60°
+[23:54:57] infer=0.113s total=2.367s db=47.5dB | fire_alarm 0.819 | DOA 동 60°
+[23:55:00] infer=0.089s total=2.342s db=46.9dB | fire_alarm 0.825 | DOA 동 60°
+[23:55:02] infer=0.083s total=2.334s db=45.8dB | fire_alarm 0.839 | DOA 동 60°
+[23:55:04] infer=0.091s total=2.331s db=45.9dB | fire_alarm 0.416 | DOA 동 61°
+[23:55:07] infer=0.094s total=2.342s db=49.6dB | baby_cry 0.995 | DOA 동 60°
+[23:55:09] infer=0.106s total=2.358s db=53.3dB | baby_cry 0.939 | DOA 동 61°
+[23:55:14] infer=0.286s total=2.534s db=54.6dB | alarm 0.334 | DOA 북 29°
+[23:55:18] infer=0.273s total=2.517s db=47.2dB | alarm 0.371 | DOA 동 57°
+[23:55:21] infer=0.114s total=2.362s db=49.0dB | scream 0.406 | DOA 동 59°
+[23:55:23] infer=0.114s total=2.364s db=51.4dB | cat_meow 0.755 | DOA 동 58°
+[23:55:28] infer=0.106s total=2.358s db=59.3dB | cat_meow 0.349 | DOA 북 30°
+[23:55:30] infer=0.103s total=2.346s db=49.4dB | scream 0.399 | DOA 동 57°
+[23:55:32] infer=0.090s total=2.341s db=62.4dB | cat_meow 0.307 | DOA 동 58°
+[23:55:35] infer=0.083s total=2.331s db=49.0dB | water 0.398 | DOA 동 57°
+[23:55:38] infer=0.112s total=2.863s db=52.5dB | water 0.407 | DOA 동 59°
+[23:55:40] infer=0.112s total=2.371s db=55.4dB | water 0.456 | DOA 동 57°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[00:18:47] infer=32.952s total=35.454s db=52.9dB | baby_cry 0.829 | DOA 동 58°
+[00:18:51] infer=0.652s total=3.753s db=53.0dB | water 0.654 | DOA 동 58°
+[00:18:53] infer=0.116s total=2.370s db=49.7dB | water 0.899 | DOA 동 59°
+[00:18:56] infer=0.094s total=2.321s db=54.4dB | water 0.558 | DOA 동 58°
+[00:19:02] infer=0.117s total=2.368s db=47.8dB | gunshot 0.363 | DOA 동 56°
+[00:19:05] infer=0.094s total=2.346s db=55.0dB | water 0.418 | DOA 동 57°
+[00:19:07] infer=0.248s total=2.492s db=57.5dB | water 0.354 | DOA 동 58°
+[00:19:10] infer=0.119s total=2.360s db=53.5dB | water 0.237 | DOA 동 56°
+[00:19:12] infer=0.083s total=2.311s db=50.0dB | water 0.425 | DOA 동 57°
+[00:19:14] infer=0.112s total=2.349s db=50.8dB | water 0.903 | DOA 동 56°
+[00:19:17] infer=0.173s total=2.405s db=61.1dB | gunshot 0.528 | DOA 동 57°
+[00:19:19] infer=0.146s total=2.381s db=59.4dB | gunshot 0.372 / water 0.331 | DOA 동 57°
+[00:19:24] infer=0.114s total=2.358s db=63.8dB | cat_meow 0.450 | DOA 동 57°
+[00:19:28] infer=0.101s total=2.330s db=62.4dB | cat_meow 0.388 | DOA 동 58°
+[00:19:31] infer=0.175s total=2.409s db=62.2dB | fire_alarm 0.397 | DOA 동 59°
+[00:19:35] infer=0.173s total=2.406s db=59.4dB | cat_meow 0.635 | DOA 동 58°
+[00:19:38] infer=0.087s total=2.323s db=54.1dB | cat_meow 0.227 | DOA 동 57°
+[00:19:49] infer=0.117s total=2.356s db=61.6dB | scream 0.855 | DOA 동 58°
+[00:19:51] infer=0.088s total=2.322s db=49.5dB | baby_cry 0.999 | DOA 동 59°
+[00:19:53] infer=0.086s total=2.314s db=55.8dB | baby_cry 1.000 | DOA 동 58°
+[00:19:58] infer=0.150s total=2.384s db=56.0dB | dog_bark 0.998 | DOA 동 58°
+[00:20:00] infer=0.114s total=2.354s db=45.7dB | dog_bark 0.897 | DOA 동 58°
+[00:20:03] infer=0.090s total=2.324s db=54.7dB | dog_bark 0.983 | DOA 동 56°
+[00:20:05] infer=0.088s total=2.318s db=50.9dB | dog_bark 0.942 | DOA 동 57°
+[00:20:07] infer=0.111s total=2.343s db=57.0dB | glass_break 0.534 | DOA 동 59°
+[00:20:12] infer=0.113s total=2.342s db=49.3dB | gunshot 0.375 | DOA 동 59°
+[00:20:14] infer=0.117s total=2.345s db=54.5dB | bicycle 0.863 | DOA 동 61°
+[00:20:17] infer=0.106s total=2.335s db=54.1dB | bicycle 0.988 | DOA 북 19°
+[00:20:19] infer=0.102s total=2.331s db=45.6dB | scream 0.262 | DOA 동 60°
+[00:20:28] infer=0.101s total=2.330s db=61.6dB | water 0.939 | DOA 동 58°
+[00:20:30] infer=0.170s total=2.402s db=60.9dB | water 0.641 | DOA 동 58°
+[00:20:33] infer=0.115s total=2.360s db=57.9dB | baby_cry 0.452 / water 0.408 | DOA 동 58°
+[00:20:35] infer=0.149s total=2.387s db=58.8dB | water 0.854 | DOA 동 57°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[04:59:38] infer=50.934s total=53.387s db=49.1dB | dog_bark 0.246 | DOA 남 180°
+[04:59:50] infer=0.916s total=3.267s db=50.1dB | cat_meow 0.207 | DOA 북 0°
+[04:59:54] infer=0.087s total=2.334s db=46.3dB | cat_meow 0.711 | DOA 남 138°
+[04:59:59] infer=0.109s total=2.359s db=45.0dB | cat_meow 0.378 | DOA 동 51°
+[05:00:01] infer=0.117s total=2.368s db=59.4dB | cat_meow 0.452 | DOA 동 124°
+[05:00:03] infer=0.086s total=2.336s db=52.3dB | cat_meow 0.941 | DOA 동 119°
+[05:00:06] infer=0.091s total=2.347s db=56.8dB | cat_meow 0.409 | DOA 동 118°
+[05:00:08] infer=0.084s total=2.336s db=56.4dB | dog_bark 0.507 / cat_meow 0.351 | DOA 남 180°
+[05:00:10] infer=0.087s total=2.338s db=50.1dB | cat_meow 0.281 | DOA 북 349°
+[05:00:13] infer=0.117s total=2.369s db=52.2dB | cat_meow 0.621 | DOA 동 69°
+[05:00:42] infer=0.081s total=2.331s db=48.8dB | gunshot 0.645 | DOA 동 121°
+[05:00:44] infer=0.159s total=2.415s db=45.7dB | alarm 0.513 / cat_meow 0.377 | DOA 북 44°
+[05:00:47] infer=0.081s total=2.325s db=46.8dB | cat_meow 0.561 | DOA 북 41°
+[05:00:49] infer=0.109s total=2.363s db=49.4dB | cat_meow 0.672 | DOA 북 42°
+[05:00:52] infer=0.172s total=2.424s db=58.1dB | cat_meow 0.945 | DOA 북 40°
+[05:00:54] infer=0.110s total=2.364s db=56.8dB | cat_meow 0.768 | DOA 서 299°
+[05:00:56] infer=0.083s total=2.333s db=54.5dB | cat_meow 0.784 | DOA 북 40°
+[05:00:59] infer=0.095s total=2.352s db=53.5dB | cat_meow 0.905 | DOA 북 40°
+[05:01:01] infer=0.111s total=2.360s db=50.2dB | cat_meow 0.596 | DOA 북 42°
+[05:01:03] infer=0.138s total=2.390s db=55.4dB | alarm 0.595 | DOA 동 124°
+[05:01:06] infer=0.123s total=2.383s db=61.6dB | cat_meow 0.921 | DOA 남 147°
+[05:01:08] infer=0.115s total=2.366s db=52.9dB | cat_meow 0.885 | DOA 북 33°
+[05:01:10] infer=0.082s total=2.333s db=52.9dB | cat_meow 0.967 | DOA 북 37°
+[05:01:13] infer=0.080s total=2.345s db=56.5dB | cat_meow 0.808 | DOA 남 139°
+[05:01:15] infer=0.118s total=2.373s db=50.9dB | cat_meow 0.890 | DOA 남 140°
+[05:01:20] infer=0.119s total=2.368s db=55.6dB | gunshot 0.467 | DOA 동 52°
+[05:01:22] infer=0.124s total=2.374s db=48.2dB | gunshot 0.448 | DOA 동 52°
+[05:01:25] infer=0.152s total=2.405s db=62.5dB | gunshot 0.592 | DOA 동 55°
+[05:01:27] infer=0.110s total=2.359s db=64.2dB | gunshot 0.398 | DOA 서 298°
+[05:01:29] infer=0.086s total=2.337s db=55.5dB | water 0.366 | DOA 북 20°
+[05:01:32] infer=0.169s total=2.422s db=61.2dB | water 0.646 | DOA 북 22°
+[05:01:34] infer=0.087s total=2.345s db=60.2dB | gunshot 0.619 | DOA 북 27°
+[05:01:36] infer=0.085s total=2.349s db=60.6dB | gunshot 0.639 | DOA 북 26°
+[05:01:39] infer=0.086s total=2.336s db=58.2dB | gunshot 0.272 | DOA 남 224°
+[05:01:41] infer=0.103s total=2.334s db=58.3dB | gunshot 0.342 | DOA 북 322°
+[05:01:43] infer=0.084s total=2.336s db=58.9dB | gunshot 0.675 | DOA 북 28°
+[05:01:46] infer=0.114s total=2.371s db=54.8dB | gunshot 0.410 | DOA 북 32°
+[05:01:48] infer=0.106s total=2.361s db=55.9dB | gunshot 0.457 | DOA 북 28°
+[05:01:51] infer=0.160s total=2.408s db=57.5dB | gunshot 0.444 | DOA 북 29°
+[05:01:53] infer=0.108s total=2.372s db=52.1dB | water 0.293 | DOA 북 29°
+[05:01:55] infer=0.127s total=2.380s db=58.0dB | gunshot 0.776 | DOA 북 35°
+[05:01:58] infer=0.088s total=2.342s db=56.8dB | gunshot 0.839 | DOA 동 116°
+[05:02:00] infer=0.140s total=2.386s db=59.0dB | gunshot 0.759 | DOA 서 278°
+[05:02:02] infer=0.084s total=2.335s db=59.1dB | scream 0.184 | DOA 북 6°
+[05:02:05] infer=0.129s total=2.387s db=60.5dB | gunshot 0.743 | DOA 동 114°
+[05:02:07] infer=0.111s total=2.368s db=57.9dB | scream 0.248 | DOA 북 26°
+[05:02:10] infer=0.140s total=2.400s db=53.2dB | water 0.232 | DOA 남 157°
+[05:02:12] infer=0.166s total=2.425s db=45.4dB | water 0.472 | DOA 북 24°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[08:01:37] infer=40.367s total=42.906s db=48.9dB | scream 0.307 | DOA 서 239°
+[08:01:43] infer=1.551s total=5.900s db=57.9dB | water 0.849 | DOA 북 25°
+[08:01:45] infer=0.081s total=2.336s db=61.0dB | water 0.942 | DOA 북 20°
+[08:01:47] infer=0.115s total=2.362s db=59.5dB | water 0.937 | DOA 서 230°
+[08:01:50] infer=0.090s total=2.340s db=61.3dB | water 0.937 | DOA 서 240°
+[08:01:52] infer=0.111s total=2.360s db=49.4dB | water 0.911 | DOA 남 151°
+[08:01:54] infer=0.111s total=2.360s db=50.8dB | water 0.690 | DOA 남 147°
+[08:01:57] infer=0.093s total=2.345s db=64.9dB | dog_bark 0.252 | DOA 서 307°
+[08:01:59] infer=0.112s total=2.357s db=58.1dB | cat_meow 0.332 / dog_bark 0.301 | DOA 남 215°
+[08:02:01] infer=0.104s total=2.361s db=55.8dB | water 0.208 | DOA 남 208°
+[08:02:04] infer=0.111s total=2.397s db=52.6dB | crying 0.419 | DOA 서 307°
+[08:02:06] infer=0.111s total=2.356s db=53.3dB | dog_bark 0.587 | DOA 서 306°
+[08:02:09] infer=0.112s total=2.363s db=52.3dB | baby_cry 0.276 | DOA 남 214°
+[08:02:40] infer=0.095s total=2.349s db=45.7dB | gunshot 0.395 | DOA 남 151°
+[08:02:42] infer=0.112s total=2.360s db=56.7dB | gunshot 0.561 | DOA 남 146°
+[08:02:45] infer=0.111s total=2.364s db=46.8dB | gunshot 0.625 | DOA 서 226°
+[08:02:47] infer=0.110s total=2.373s db=49.9dB | gunshot 0.449 | DOA 남 155°
+[08:02:49] infer=0.083s total=2.330s db=50.9dB | water 0.596 | DOA 남 224°
+[08:02:52] infer=0.111s total=2.360s db=60.8dB | water 0.760 | DOA 남 223°
+[08:02:54] infer=0.113s total=2.381s db=53.8dB | water 0.857 | DOA 남 224°
+[08:02:56] infer=0.084s total=2.331s db=46.7dB | water 0.958 | DOA 남 223°
+[08:02:59] infer=0.083s total=2.335s db=52.3dB | water 0.830 | DOA 서 310°
+[08:03:01] infer=0.229s total=2.501s db=58.9dB | water 0.203 | DOA 북 24°
+[08:03:04] infer=0.117s total=2.371s db=51.1dB | water 0.585 | DOA 북 24°
+[08:03:06] infer=0.099s total=2.346s db=49.2dB | water 0.956 | DOA 북 24°
+[08:03:08] infer=0.143s total=2.390s db=45.6dB | water 0.886 | DOA 북 25°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[10:44:48] infer=47.622s total=50.262s db=52.4dB | cat_meow 0.370 | DOA 서 244°
+[10:44:52] infer=0.650s total=4.058s db=53.8dB | cat_meow 0.239 | DOA 서 257°
+[10:44:54] infer=0.112s total=2.351s db=57.9dB | water 0.711 | DOA 서 251°
+[10:44:56] infer=0.196s total=2.435s db=48.7dB | water 0.589 | DOA 서 251°
+[10:44:59] infer=0.115s total=2.361s db=58.8dB | dog_bark 0.416 | DOA 서 241°
+[10:45:01] infer=0.086s total=2.329s db=53.0dB | water 0.229 | DOA 서 246°
+[10:45:03] infer=0.111s total=2.344s db=51.1dB | dog_bark 0.491 | DOA 서 247°
+[10:45:06] infer=0.087s total=2.320s db=51.5dB | cat_meow 0.624 | DOA 서 247°
+[10:45:08] infer=0.113s total=2.348s db=53.3dB | cat_meow 0.541 | DOA 서 242°
+[10:45:10] infer=0.112s total=2.348s db=56.2dB | dog_bark 0.622 | DOA 북 330°
+[10:45:13] infer=0.098s total=2.336s db=47.9dB | cat_meow 0.468 | DOA 북 330°
+[10:45:15] infer=0.111s total=2.357s db=54.2dB | baby_cry 0.198 | DOA 북 344°
+[10:45:17] infer=0.132s total=2.376s db=52.9dB | cat_meow 0.391 | DOA 북 338°
+[10:45:20] infer=0.116s total=2.355s db=45.6dB | cat_meow 0.183 | DOA 서 244°
+[10:45:22] infer=0.087s total=2.324s db=49.8dB | water 0.244 | DOA 북 336°
+[10:45:25] infer=0.115s total=2.352s db=60.4dB | dog_bark 0.450 | DOA 북 329°
+[10:45:27] infer=0.113s total=2.353s db=66.6dB | dog_bark 0.752 | DOA 서 259°
+[10:45:29] infer=0.143s total=2.374s db=52.3dB | dog_bark 0.842 | DOA 서 257°
+[10:45:32] infer=0.097s total=2.332s db=54.1dB | gunshot 0.266 | DOA 북 326°
+[10:45:36] infer=0.097s total=2.338s db=51.7dB | dog_bark 0.746 | DOA 북 32°
+[10:45:38] infer=0.109s total=2.364s db=58.0dB | dog_bark 0.365 | DOA 서 234°
+[10:45:41] infer=0.115s total=2.349s db=52.9dB | water 0.880 | DOA 남 219°
+[10:45:43] infer=0.109s total=2.351s db=56.1dB | water 0.391 / baby_cry 0.303 | DOA 남 213°
+[10:45:46] infer=0.096s total=2.340s db=54.1dB | water 0.865 | DOA 서 295°
+[10:45:48] infer=0.116s total=2.349s db=57.6dB | water 0.813 | DOA 북 21°
+[10:45:50] infer=0.112s total=2.357s db=52.1dB | water 0.564 | DOA 남 158°
+[10:45:55] infer=0.098s total=2.325s db=58.4dB | cat_meow 0.279 | DOA 남 223°
+[10:45:57] infer=0.104s total=2.343s db=52.2dB | water 0.872 | DOA 서 226°
+[10:45:59] infer=0.111s total=2.345s db=54.3dB | water 0.556 | DOA 남 219°
+[10:46:02] infer=0.211s total=2.453s db=55.2dB | dog_bark 0.591 | DOA 북 321°
+[10:46:04] infer=0.183s total=2.424s db=55.2dB | cat_meow 0.542 | DOA 북 324°
+[10:46:07] infer=0.195s total=2.436s db=54.3dB | water 0.209 | DOA 북 324°
+[10:46:09] infer=0.184s total=2.439s db=48.4dB | cat_meow 0.411 | DOA 서 237°
+[10:46:12] infer=0.082s total=2.326s db=51.9dB | dog_bark 0.317 | DOA 서 240°
+[10:46:14] infer=0.137s total=2.383s db=53.3dB | cat_meow 0.343 / dog_bark 0.304 | DOA 서 239°
+[10:46:16] infer=0.099s total=2.338s db=58.6dB | gunshot 0.312 | DOA 서 242°
+[10:46:19] infer=0.089s total=2.315s db=47.1dB | water 0.312 | DOA 서 248°
+[10:46:21] infer=0.084s total=2.325s db=57.2dB | cat_meow 0.398 | DOA 남 145°
+[10:46:23] infer=0.114s total=2.350s db=55.0dB | cat_meow 0.453 | DOA 남 148°
+[10:46:26] infer=0.124s total=2.358s db=48.4dB | cat_meow 0.381 | DOA 남 151°
+[10:46:28] infer=0.108s total=2.352s db=48.1dB | cat_meow 0.341 | DOA 남 150°
+[10:46:30] infer=0.193s total=2.437s db=58.8dB | cat_meow 0.703 | DOA 남 152°
+[10:46:33] infer=0.085s total=2.328s db=55.5dB | cat_meow 0.318 | DOA 서 242°
+[10:46:35] infer=0.177s total=2.416s db=64.8dB | cat_meow 0.395 | DOA 동 120°
+[10:46:38] infer=0.204s total=2.450s db=65.6dB | dog_bark 0.854 | DOA 서 239°
+[10:46:40] infer=0.088s total=2.338s db=46.7dB | dog_bark 0.679 | DOA 북 323°
+[10:46:47] infer=0.192s total=2.433s db=54.0dB | cat_meow 0.414 | DOA 서 244°
+[10:46:49] infer=0.084s total=2.322s db=58.2dB | dog_bark 0.523 | DOA 서 238°
+[10:46:51] infer=0.082s total=2.324s db=52.2dB | dog_bark 0.583 | DOA 서 238°
+[10:47:01] infer=0.229s total=2.466s db=57.7dB | cat_meow 0.298 | DOA 서 239°
+[10:47:03] infer=0.210s total=2.455s db=49.8dB | dog_bark 0.281 | DOA 서 238°
+[10:47:05] infer=0.114s total=2.354s db=55.4dB | dog_bark 0.457 | DOA 서 240°
+[10:47:08] infer=0.178s total=2.424s db=46.4dB | cat_meow 0.432 | DOA 서 238°
+[10:47:10] infer=0.089s total=2.326s db=48.6dB | cat_meow 0.409 | DOA 서 240°
+[10:47:13] infer=0.114s total=2.346s db=58.2dB | dog_bark 0.442 | DOA 북 324°
+[10:47:15] infer=0.211s total=2.447s db=52.6dB | cat_meow 0.557 | DOA 북 323°
+[10:47:18] infer=0.298s total=2.541s db=56.8dB | cat_meow 0.352 | DOA 북 319°
+[10:47:20] infer=0.113s total=2.357s db=54.9dB | cat_meow 0.574 | DOA 북 315°
+[10:47:22] infer=0.117s total=2.354s db=48.3dB | dog_bark 0.464 | DOA 서 313°
+[10:47:25] infer=0.095s total=2.343s db=50.3dB | water 0.209 | DOA 북 316°
+[10:47:27] infer=0.164s total=2.396s db=58.9dB | dog_bark 0.725 | DOA 북 319°
+[10:47:29] infer=0.113s total=2.360s db=56.6dB | gunshot 0.221 | DOA 북 319°
+[10:47:32] infer=0.083s total=2.327s db=56.2dB | cat_meow 0.266 | DOA 북 319°
+[10:47:34] infer=0.179s total=2.411s db=53.6dB | dog_bark 0.802 | DOA 서 306°
+[10:47:36] infer=0.083s total=2.320s db=47.7dB | cat_meow 0.209 | DOA 서 303°
+[10:47:39] infer=0.127s total=2.369s db=52.5dB | cat_meow 0.293 | DOA 서 306°
+[10:47:41] infer=0.112s total=2.356s db=48.2dB | gunshot 0.335 | DOA 서 303°
+[10:47:43] infer=0.086s total=2.320s db=54.8dB | dog_bark 0.814 | DOA 서 314°
+[10:47:46] infer=0.167s total=2.406s db=53.0dB | cat_meow 0.330 | DOA 서 268°
+[10:47:48] infer=0.087s total=2.323s db=65.6dB | dog_bark 0.454 | DOA 북 328°
+[10:47:50] infer=0.087s total=2.327s db=55.0dB | dog_bark 0.462 / baby_cry 0.409 | DOA 북 321°
+[10:47:53] infer=0.118s total=2.357s db=60.4dB | dog_bark 0.311 | DOA 북 329°
+[10:47:55] infer=0.244s total=2.483s db=52.0dB | dog_bark 0.580 | DOA 북 331°
+[10:47:58] infer=0.117s total=2.350s db=54.7dB | dog_bark 0.596 | DOA 북 331°
+[10:48:00] infer=0.117s total=2.355s db=52.9dB | dog_bark 0.541 | DOA 북 334°
+[10:48:02] infer=0.207s total=2.447s db=54.2dB | baby_cry 0.526 | DOA 북 35°
+[10:48:05] infer=0.242s total=2.493s db=57.8dB | dog_bark 0.648 | DOA 북 331°
+[10:48:07] infer=0.088s total=2.343s db=52.6dB | cat_meow 0.393 | DOA 북 331°
+[10:48:10] infer=0.115s total=2.346s db=55.9dB | dog_bark 0.367 | DOA 북 334°
+[10:48:12] infer=0.091s total=2.324s db=52.5dB | dog_bark 0.587 | DOA 북 334°
+[10:48:14] infer=0.171s total=2.407s db=46.0dB | gunshot 0.257 | DOA 북 333°
+[10:48:17] infer=0.121s total=2.360s db=49.4dB | water 0.226 | DOA 남 219°
+[10:48:19] infer=0.195s total=2.430s db=55.3dB | cat_meow 0.435 | DOA 서 236°
+[10:48:22] infer=0.106s total=2.350s db=55.3dB | dog_bark 0.305 / cat_meow 0.304 | DOA 서 242°
+[10:48:24] infer=0.246s total=2.481s db=54.6dB | dog_bark 0.410 | DOA 서 238°
+[10:48:26] infer=0.084s total=2.328s db=57.4dB | cat_meow 0.256 | DOA 서 240°
+[10:48:29] infer=0.084s total=2.318s db=56.1dB | dog_bark 0.474 | DOA 서 239°
+[10:48:31] infer=0.293s total=2.539s db=54.4dB | dog_bark 0.290 | DOA 서 240°
+[10:48:34] infer=0.081s total=2.332s db=56.1dB | dog_bark 0.321 | DOA 서 244°
+[10:48:36] infer=0.109s total=2.356s db=63.6dB | dog_bark 0.561 | DOA 서 244°
+[10:48:38] infer=0.130s total=2.375s db=61.0dB | dog_bark 0.463 / baby_cry 0.421 | DOA 서 237°
+[10:48:41] infer=0.293s total=2.533s db=51.9dB | dog_bark 0.466 / baby_cry 0.323 | DOA 서 241°
+[10:48:43] infer=0.145s total=2.393s db=55.0dB | dog_bark 0.634 | DOA 서 240°
+[10:48:46] infer=0.183s total=2.422s db=48.0dB | cat_meow 0.286 | DOA 서 242°
+[10:48:48] infer=0.084s total=2.322s db=53.9dB | dog_bark 0.677 | DOA 북 330°
+[10:48:50] infer=0.093s total=2.324s db=52.0dB | cat_meow 0.280 | DOA 북 331°
+[10:48:53] infer=0.115s total=2.362s db=51.9dB | cat_meow 0.317 | DOA 북 330°
+[10:48:55] infer=0.118s total=2.355s db=53.6dB | dog_bark 0.319 | DOA 북 332°
+[10:48:57] infer=0.112s total=2.345s db=48.3dB | cat_meow 0.314 / dog_bark 0.313 | DOA 북 329°
+[10:49:00] infer=0.097s total=2.324s db=53.7dB | cat_meow 0.323 | DOA 서 264°
+[10:49:02] infer=0.250s total=2.495s db=53.3dB | cat_meow 0.597 | DOA 북 332°
+[10:49:05] infer=0.168s total=2.409s db=55.0dB | dog_bark 0.371 / cat_meow 0.315 | DOA 북 329°
+[10:49:07] infer=0.240s total=2.479s db=48.6dB | cat_meow 0.314 | DOA 북 332°
+[10:49:09] infer=0.091s total=2.337s db=50.4dB | cat_meow 0.395 | DOA 북 332°
+[10:49:12] infer=0.177s total=2.415s db=45.0dB | gunshot 0.418 | DOA 서 261°
+[10:49:14] infer=0.263s total=2.505s db=45.8dB | gunshot 0.384 / cat_meow 0.328 | DOA 북 332°
+[10:49:17] infer=0.101s total=2.338s db=60.8dB | cat_meow 0.423 / dog_bark 0.306 | DOA 북 329°
+[10:49:19] infer=0.227s total=2.468s db=54.6dB | cat_meow 0.475 | DOA 북 329°
+[10:49:21] infer=0.087s total=2.332s db=55.3dB | cat_meow 0.404 | DOA 북 330°
+[10:49:24] infer=0.167s total=2.402s db=57.8dB | dog_bark 0.380 | DOA 북 325°
+[10:49:26] infer=0.184s total=2.427s db=56.7dB | cat_meow 0.412 | DOA 북 325°
+[10:49:29] infer=0.274s total=2.531s db=51.8dB | baby_cry 0.506 / dog_bark 0.371 | DOA 북 327°
+[10:49:31] infer=0.103s total=2.350s db=50.1dB | cat_meow 0.222 | DOA 북 327°
+[10:49:34] infer=0.120s total=2.364s db=57.7dB | dog_bark 0.662 | DOA 북 323°
+[10:49:36] infer=0.114s total=2.359s db=53.8dB | cat_meow 0.422 | DOA 북 324°
+[10:49:38] infer=0.086s total=2.326s db=55.1dB | cat_meow 0.350 | DOA 북 324°
+[10:49:41] infer=0.114s total=2.350s db=52.7dB | dog_bark 0.401 | DOA 북 328°
+[10:49:43] infer=0.084s total=2.326s db=54.4dB | dog_bark 0.456 | DOA 북 328°
+[10:49:45] infer=0.113s total=2.346s db=48.8dB | dog_bark 0.290 | DOA 북 327°
+[10:49:50] infer=0.176s total=2.414s db=54.1dB | dog_bark 0.458 | DOA 북 326°
+[10:49:52] infer=0.104s total=2.347s db=55.4dB | dog_bark 0.427 | DOA 북 325°
+[10:49:55] infer=0.092s total=2.326s db=45.1dB | gunshot 0.347 | DOA 북 324°
+[10:49:59] infer=0.092s total=2.325s db=56.8dB | cat_meow 0.501 | DOA 북 324°
+[10:50:04] infer=0.099s total=2.332s db=50.6dB | cat_meow 0.365 | DOA 북 323°
+[10:50:06] infer=0.082s total=2.308s db=52.8dB | dog_bark 0.552 | DOA 북 325°
+[10:50:08] infer=0.139s total=2.377s db=55.4dB | cat_meow 0.366 | DOA 서 246°
+[10:50:11] infer=0.091s total=2.334s db=62.9dB | scream 0.373 | DOA 북 318°
+[10:50:13] infer=0.091s total=2.324s db=55.3dB | dog_bark 0.644 | DOA 서 232°
+[10:50:15] infer=0.263s total=2.502s db=62.7dB | dog_bark 0.473 / baby_cry 0.411 | DOA 서 242°
+[10:50:18] infer=0.093s total=2.336s db=50.6dB | cat_meow 0.302 | DOA 서 279°
+[10:50:20] infer=0.104s total=2.338s db=54.6dB | cat_meow 0.378 | DOA 서 239°
+[10:50:23] infer=0.178s total=2.413s db=55.7dB | cat_meow 0.369 | DOA 서 241°
+[10:50:25] infer=0.098s total=2.339s db=51.1dB | dog_bark 0.353 | DOA 서 306°
+[10:50:27] infer=0.092s total=2.325s db=60.2dB | dog_bark 0.531 / baby_cry 0.307 | DOA 서 240°
+[10:50:30] infer=0.114s total=2.359s db=48.9dB | cat_meow 0.315 | DOA 서 242°
+[10:50:32] infer=0.127s total=2.365s db=58.0dB | dog_bark 0.334 | DOA 서 245°
+[10:50:34] infer=0.194s total=2.445s db=50.2dB | cat_meow 0.631 | DOA 서 244°
+[10:50:37] infer=0.116s total=2.354s db=57.3dB | cat_meow 0.329 | DOA 서 244°
+[10:50:39] infer=0.090s total=2.322s db=52.7dB | dog_bark 0.306 | DOA 서 246°
+[10:50:41] infer=0.125s total=2.361s db=54.0dB | dog_bark 0.377 | DOA 북 327°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[12:46:42] infer=47.898s total=50.203s db=51.3dB | dog_bark 0.697 | DOA 남 182°
+[12:47:06] infer=1.162s total=3.554s db=51.7dB | gunshot 0.766 | DOA 남 176°
+[12:47:11] infer=0.113s total=2.353s db=55.0dB | cat_meow 0.999 | DOA 남 197°
+[12:47:16] infer=0.113s total=2.346s db=55.8dB | cat_meow 1.000 | DOA 남 198°
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.700
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[13:28:08] listening db=28.4dB | reason=low_db
+[13:28:10] listening db=22.3dB | reason=low_db
+[13:28:12] listening db=19.2dB | reason=low_db
+[13:28:14] listening db=19.3dB | reason=low_db
+[13:28:17] listening db=17.7dB | reason=low_db
+[13:28:19] listening db=17.4dB | reason=low_db
+[13:28:21] listening db=19.6dB | reason=low_db
+[13:28:23] listening db=18.9dB | reason=low_db
+[13:28:25] listening db=17.3dB | reason=low_db
+[13:28:27] listening db=20.9dB | reason=low_db
+[13:28:29] listening db=17.5dB | reason=low_db
+[13:28:32] listening db=17.1dB | reason=low_db
+[13:28:34] listening db=22.4dB | reason=low_db
+[13:28:36] listening db=18.4dB | reason=low_db
+[13:28:38] listening db=25.8dB | reason=low_db
+[13:28:40] listening db=19.5dB | reason=low_db
+[13:28:42] listening db=17.5dB | reason=low_db
+[13:28:44] listening db=17.6dB | reason=low_db
+[13:28:47] listening db=20.5dB | reason=low_db
+[13:28:49] listening db=16.8dB | reason=low_db
+[13:28:51] listening db=21.2dB | reason=low_db
+[13:28:53] listening db=22.1dB | reason=low_db
+[13:28:55] listening db=17.1dB | reason=low_db
+[13:28:57] listening db=17.8dB | reason=low_db
+[13:28:59] listening db=25.4dB | reason=low_db
+[13:29:02] listening db=25.5dB | reason=low_db
+[13:29:04] listening db=20.4dB | reason=low_db
+[13:29:06] listening db=16.7dB | reason=low_db
+[13:29:08] listening db=16.7dB | reason=low_db
+[13:29:10] listening db=17.1dB | reason=low_db
+[13:29:12] listening db=17.0dB | reason=low_db
+[13:29:14] listening db=17.1dB | reason=low_db
+[13:29:17] listening db=16.9dB | reason=low_db
+[13:29:19] listening db=17.0dB | reason=low_db
+[13:29:21] listening db=40.6dB | reason=low_db
+[13:29:23] listening db=25.4dB | reason=low_db
+[13:29:25] listening db=27.6dB | reason=low_db
+[13:29:27] listening db=31.9dB | reason=low_db
+[13:29:58] infer=28.812s total=31.055s db=47.7dB | baby_cry 0.937 | DOA 남 182°
+[13:30:02] listening db=27.8dB | reason=low_db
+[13:30:04] listening db=21.1dB | reason=low_db
+[13:30:08] infer=1.213s total=3.735s db=60.3dB | cat_meow 0.968 | DOA 남 172°
+[13:30:10] infer=0.091s total=2.323s db=60.0dB | cat_meow 0.886 | DOA 남 168°
+[13:30:13] infer=0.174s total=2.402s db=57.1dB | cat_meow 0.997 | DOA 남 166°
+[13:30:15] listening db=30.7dB | reason=low_db
+[13:30:17] listening db=44.8dB | reason=low_db
+[13:30:19] listening db=57.4dB | reason=low_score
+[13:30:22] infer=0.159s total=2.396s db=55.3dB | scream 0.939 | DOA 남 178°
+[13:30:24] listening db=49.0dB | reason=low_score
+[13:30:26] listening db=27.7dB | reason=low_db
+[13:30:29] listening db=11.8dB | reason=low_db
+[13:30:31] listening db=38.1dB | reason=low_db
+[13:30:33] infer=0.169s total=2.397s db=47.0dB | baby_cry 0.917 | DOA 남 148°
+[13:30:36] listening db=48.9dB | reason=low_score
+[13:30:38] listening db=59.2dB | reason=low_score
+[13:30:40] infer=0.227s total=2.455s db=61.5dB | scream 0.961 | DOA 남 139°
+[13:30:43] infer=0.105s total=2.345s db=60.2dB | scream 0.954 | DOA 동 133°
+[13:30:45] listening db=53.9dB | reason=low_score
+[13:30:47] listening db=43.9dB | reason=low_db
+[13:30:50] listening db=21.6dB | reason=low_db
+[13:30:52] listening db=22.5dB | reason=low_db
+[13:30:54] listening db=20.2dB | reason=low_db
+[13:30:56] listening db=15.0dB | reason=low_db
+[13:30:58] listening db=15.5dB | reason=low_db
+[13:31:01] listening db=17.2dB | reason=low_db
+[13:31:03] listening db=15.0dB | reason=low_db
+[13:31:05] listening db=15.3dB | reason=low_db
+[13:31:07] listening db=16.4dB | reason=low_db
+[13:31:09] listening db=19.5dB | reason=low_db
+[13:31:12] listening db=15.3dB | reason=low_db
+[13:31:14] listening db=22.4dB | reason=low_db
+[13:31:16] listening db=21.6dB | reason=low_db
+[13:31:18] listening db=25.0dB | reason=low_db
+[13:31:21] listening db=23.0dB | reason=low_db
+[13:31:23] listening db=18.3dB | reason=low_db
+[13:31:25] listening db=21.1dB | reason=low_db
+[13:31:27] listening db=23.4dB | reason=low_db
+[13:31:29] listening db=26.9dB | reason=low_db
+[13:31:32] listening db=20.3dB | reason=low_db
+[13:31:34] listening db=19.5dB | reason=low_db
+[13:31:36] listening db=18.8dB | reason=low_db
+[13:31:38] listening db=18.0dB | reason=low_db
+[13:31:40] listening db=18.0dB | reason=low_db
+[13:31:43] listening db=15.9dB | reason=low_db
+[13:31:45] listening db=15.7dB | reason=low_db
+[13:31:47] listening db=23.8dB | reason=low_db
+[13:31:49] listening db=17.0dB | reason=low_db
+[13:31:52] listening db=23.4dB | reason=low_db
+[13:31:54] listening db=16.3dB | reason=low_db
+[13:31:56] listening db=16.7dB | reason=low_db
+[13:31:58] listening db=16.6dB | reason=low_db
+[13:32:00] listening db=15.4dB | reason=low_db
+[13:32:03] listening db=44.3dB | reason=low_db
+[13:32:05] infer=0.116s total=2.349s db=59.0dB | cat_meow 0.997 | DOA 남 140°
+[13:32:07] infer=0.110s total=2.340s db=53.4dB | cat_meow 1.000 | DOA 남 150°
+[13:32:10] listening db=33.4dB | reason=low_db
+[13:32:12] listening db=18.7dB | reason=low_db
+[13:32:14] listening db=21.6dB | reason=low_db
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.700
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[13:37:05] listening db=15.0dB | reason=low_db
+[13:37:07] listening db=15.4dB | reason=low_db
+[13:37:09] listening db=20.5dB | reason=low_db
+[13:37:11] listening db=15.1dB | reason=low_db
+[13:37:14] listening db=15.3dB | reason=low_db
+[13:37:16] listening db=24.1dB | reason=low_db
+[13:37:18] listening db=23.3dB | reason=low_db
+[13:37:20] listening db=15.0dB | reason=low_db
+[13:37:22] listening db=15.4dB | reason=low_db
+[13:37:24] listening db=15.2dB | reason=low_db
+[13:37:26] listening db=16.1dB | reason=low_db
+[13:37:29] listening db=16.3dB | reason=low_db
+[13:37:31] listening db=15.8dB | reason=low_db
+[13:37:33] listening db=22.6dB | reason=low_db
+[13:37:35] listening db=24.4dB | reason=low_db
+[13:37:37] listening db=17.6dB | reason=low_db
+[13:37:39] listening db=22.8dB | reason=low_db
+[13:37:41] listening db=19.2dB | reason=low_db
+[13:37:44] listening db=20.2dB | reason=low_db
+[13:37:46] listening db=17.2dB | reason=low_db
+[13:37:48] listening db=18.2dB | reason=low_db
+[13:37:50] listening db=18.2dB | reason=low_db
+[13:37:52] listening db=22.9dB | reason=low_db
+[13:37:54] listening db=16.5dB | reason=low_db
+[13:37:56] listening db=19.3dB | reason=low_db
+[13:37:59] listening db=17.0dB | reason=low_db
+[13:38:01] listening db=36.1dB | reason=low_db
+[13:38:03] listening db=33.5dB | reason=low_db
+[13:38:35] listening db=61.5dB | reason=low_score
+[13:38:40] infer=1.326s total=4.904s db=59.8dB | baby_cry 0.950 | DOA 남 158°
+[13:38:42] infer=0.118s total=2.433s db=49.1dB | baby_cry 0.953 | DOA 남 163°
+[13:38:45] infer=0.115s total=2.343s db=57.1dB | baby_cry 0.983 | DOA 남 162°
+[13:38:47] infer=0.084s total=2.322s db=52.9dB | cat_meow 0.808 | DOA 남 162°
+[13:38:49] listening db=37.5dB | reason=low_db
+[13:38:52] infer=0.094s total=2.331s db=59.0dB | baby_cry 0.917 | DOA 남 159°
+[13:38:54] infer=0.096s total=2.327s db=58.4dB | scream 0.746 | DOA 남 147°
+[13:38:56] infer=0.117s total=2.349s db=56.8dB | scream 0.991 | DOA 남 162°
+[13:38:59] infer=0.242s total=2.474s db=53.5dB | scream 0.868 | DOA 남 180°
+[13:39:01] infer=0.298s total=2.541s db=51.1dB | scream 0.947 | DOA 서 238°
+[13:39:04] infer=0.191s total=2.460s db=55.9dB | baby_cry 0.849 | DOA 서 239°
+[13:39:06] infer=0.121s total=2.355s db=53.5dB | baby_cry 0.872 | DOA 서 234°
+[13:39:08] listening db=22.9dB | reason=low_db
+[13:39:11] listening db=42.9dB | reason=low_db
+[13:39:13] listening db=26.9dB | reason=low_db
+[13:39:15] listening db=24.9dB | reason=low_db
+[13:39:17] listening db=32.4dB | reason=low_db
+[13:39:19] listening db=22.6dB | reason=low_db
+[13:39:22] listening db=22.6dB | reason=low_db
+[13:39:24] listening db=22.4dB | reason=low_db
+[13:39:26] listening db=22.6dB | reason=low_db
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.700
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[13:55:27] listening db=29.0dB | reason=low_db
+[13:55:29] listening db=27.8dB | reason=low_db
+[13:55:32] listening db=28.0dB | reason=low_db
+[13:55:34] listening db=23.8dB | reason=low_db
+[13:55:36] listening db=28.4dB | reason=low_db
+[13:55:38] listening db=22.7dB | reason=low_db
+[13:55:40] listening db=24.1dB | reason=low_db
+[13:55:42] listening db=23.0dB | reason=low_db
+[13:55:44] listening db=22.9dB | reason=low_db
+[13:55:47] listening db=23.8dB | reason=low_db
+[13:55:49] listening db=23.0dB | reason=low_db
+[13:55:51] listening db=23.8dB | reason=low_db
+[13:55:53] listening db=23.2dB | reason=low_db
+[13:55:55] listening db=23.5dB | reason=low_db
+[13:55:57] listening db=23.3dB | reason=low_db
+[13:55:59] listening db=23.0dB | reason=low_db
+[13:56:02] listening db=23.6dB | reason=low_db
+[13:56:04] listening db=22.8dB | reason=low_db
+[13:56:06] listening db=22.7dB | reason=low_db
+[13:56:08] listening db=30.9dB | reason=low_db
+[13:56:10] listening db=24.4dB | reason=low_db
+[13:56:12] listening db=23.0dB | reason=low_db
+[13:56:14] listening db=23.7dB | reason=low_db
+[13:56:17] listening db=38.2dB | reason=low_db
+[13:56:46] infer=27.448s total=29.859s db=51.0dB | cat_meow 0.818 | DOA 북 341°
+[13:56:52] infer=0.900s total=5.115s db=53.0dB | cat_meow 0.988 | DOA 남 177°
+[13:56:54] listening db=3.7dB | reason=low_db
+[13:56:56] listening db=3.1dB | reason=low_db
+[13:56:58] listening db=3.0dB | reason=low_db
+[13:57:01] infer=0.086s total=2.314s db=56.5dB | cat_meow 0.996 | DOA 남 195°
+[13:57:03] infer=0.113s total=2.484s db=50.5dB | cat_meow 0.740 | DOA 남 201°
+[13:57:05] listening db=15.1dB | reason=low_db
+[13:57:08] listening db=9.8dB | reason=low_db
+[13:57:10] listening db=4.0dB | reason=low_db
+[13:57:12] listening db=3.1dB | reason=low_db
+[13:57:14] listening db=4.8dB | reason=low_db
+[13:57:16] listening db=3.2dB | reason=low_db
+[13:57:19] listening db=8.6dB | reason=low_db
+[13:57:21] listening db=4.4dB | reason=low_db
+[13:57:23] listening db=1.5dB | reason=low_db
+[13:57:25] listening db=1.4dB | reason=low_db
+[13:57:28] listening db=4.2dB | reason=low_db
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 45.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[02:31:10] listening db=37.7dB | reason=low_db
+[02:31:12] listening db=37.7dB | reason=low_db
+[02:31:14] listening db=38.0dB | reason=low_db
+[02:31:16] listening db=38.5dB | reason=low_db
+[02:31:19] listening db=38.5dB | reason=low_db
+[02:31:21] listening db=39.3dB | reason=low_db
+[02:31:23] listening db=41.3dB | reason=low_db
+[02:31:25] listening db=44.9dB | reason=low_db
+[02:32:24] infer=56.999s total=59.385s db=50.3dB | water 0.978 | DOA 동 53°
+[02:32:28] listening db=40.0dB | reason=low_db
+[02:32:30] listening db=41.5dB | reason=low_db
+[02:32:32] listening db=39.6dB | reason=low_db
+[02:32:35] listening db=44.4dB | reason=low_db
+[02:32:38] infer=0.593s total=2.864s db=60.4dB | water 0.881 | DOA 동 58°
+[02:32:40] infer=0.116s total=2.364s db=57.0dB | water 0.968 | DOA 동 55°
+[02:32:42] infer=0.210s total=2.455s db=49.9dB | water 0.940 | DOA 북 321°
+[02:32:45] infer=0.179s total=2.429s db=51.8dB | water 0.946 | DOA 서 306°
+[02:32:47] listening db=41.2dB | reason=low_db
+[02:32:49] listening db=39.2dB | reason=low_db
+[02:32:51] listening db=40.7dB | reason=low_db
+[02:32:54] listening db=43.1dB | reason=low_db
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 30.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[02:36:36] listening db=38.2dB | reason=low_db
+[02:36:41] listening db=38.8dB | reason=low_db
+[02:36:43] listening db=41.1dB | reason=low_db
+[02:36:45] listening db=38.8dB | reason=low_db
+[02:36:48] listening db=38.1dB | reason=low_db
+[02:36:50] listening db=38.7dB | reason=low_db
+[02:36:52] listening db=38.5dB | reason=low_db
+[02:36:55] listening db=38.4dB | reason=low_db
+[02:36:57] listening db=38.6dB | reason=low_db
+[02:36:59] listening db=38.3dB | reason=low_db
+[02:37:02] listening db=45.6dB | reason=low_score
+[02:37:04] listening db=42.5dB | reason=low_db
+[02:37:07] infer=0.176s total=2.394s db=49.4dB | water 0.725 | DOA 동 53°
+[02:37:09] infer=0.169s total=2.403s db=46.8dB | water 0.942 | DOA 동 53°
+[02:37:11] listening db=39.8dB | reason=low_db
+[02:37:14] listening db=39.8dB | reason=low_db
+[02:37:16] listening db=38.8dB | reason=low_db
+[02:37:18] listening db=39.0dB | reason=low_db
+[02:37:21] listening db=38.2dB | reason=low_db
+[02:37:23] listening db=38.6dB | reason=low_db
+[02:37:25] listening db=43.4dB | reason=low_db
+[02:37:28] infer=0.096s total=2.319s db=47.6dB | water 0.974 | DOA 동 51°
+[02:37:30] listening db=41.1dB | reason=low_db
+[02:37:32] listening db=37.6dB | reason=low_db
+[02:37:35] listening db=43.7dB | reason=low_db
+[02:37:37] listening db=40.2dB | reason=low_db
+[02:37:39] listening db=38.1dB | reason=low_db
+[02:37:42] listening db=38.3dB | reason=low_db
+[02:37:44] listening db=38.9dB | reason=low_db
+[02:37:46] listening db=38.0dB | reason=low_db
+[02:37:49] listening db=38.1dB | reason=low_db
+[02:37:51] listening db=37.6dB | reason=low_db
+[02:37:53] listening db=38.2dB | reason=low_db
+[02:37:56] listening db=38.0dB | reason=low_db
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 30.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[02:40:30] listening db=37.8dB | reason=low_db
+[02:40:35] listening db=38.3dB | reason=low_db
+[02:40:38] listening db=38.2dB | reason=low_db
+[02:40:40] infer=0.051s total=2.375s db=47.4dB | gunshot 0.866 | DOA 서 240°
+[02:40:42] infer=0.056s total=2.274s db=57.8dB | water 0.949 | DOA 동 50°
+[02:40:44] infer=0.050s total=2.246s db=55.8dB | water 0.916 | DOA 동 53°
+[02:40:47] listening db=40.4dB | reason=low_db
+[02:40:49] listening db=39.3dB | reason=low_db
+[02:40:51] listening db=38.7dB | reason=low_db
+[02:40:53] listening db=38.5dB | reason=low_db
+Warning: FMAX is None setting to 15000 
+device: cuda
+checkpoint: /workspace/EfficientAT/checkpoints/best_model_jetson.pt
+model: mn04_as head: mlp classes: 11
+labels: alarm, baby_cry, bicycle, cat_meow, crying, dog_bark, fire_alarm, glass_break, gunshot, scream, water
+audio device: plughw:2,0
+record: 16000Hz, 6ch, 2s
+channel-index: 0
+model input: 32000Hz, 10.00s
+score: softmax, threshold=0.300
+min-db: 30.0 dB
+Ctrl+C to stop
+------------------------------------------------------------
+[02:43:10] listening db=38.2dB | reason=low_db
+[02:43:13] listening db=41.2dB | reason=low_db
+[02:43:16] listening db=41.7dB | reason=low_db
+[02:43:18] listening db=48.1dB | reason=low_score
+[02:43:20] infer=0.050s total=2.259s db=47.9dB | water 0.920 | DOA 동 50°
+[02:43:22] listening db=44.1dB | reason=low_db
+[02:43:25] listening db=43.7dB | reason=low_db
+[02:43:27] listening db=41.1dB | reason=low_db
+[02:43:29] listening db=39.5dB | reason=low_db
+[02:43:31] listening db=42.6dB | reason=low_db
+[02:43:34] infer=0.052s total=2.245s db=48.0dB | water 0.849 | DOA 동 51°
+[02:43:36] infer=0.052s total=2.248s db=45.7dB | water 0.931 | DOA 동 51°
+[02:43:38] infer=0.057s total=2.253s db=51.8dB | water 0.963 | DOA 서 310°
+[02:43:40] infer=0.051s total=2.246s db=56.9dB | water 0.940 | DOA 서 300°
+[02:43:43] listening db=51.9dB | reason=low_score

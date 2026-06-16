@@ -1,0 +1,28 @@
+{
+  "labels": [
+    "alarm",
+    "baby_cry",
+    "bicycle",
+    "cat_meow",
+    "crying",
+    "dog_bark",
+    "fire_alarm",
+    "glass_break",
+    "gunshot",
+    "scream",
+    "water"
+  ],
+  "label2id": {
+    "alarm": 0,
+    "baby_cry": 1,
+    "bicycle": 2,
+    "cat_meow": 3,
+    "crying": 4,
+    "dog_bark": 5,
+    "fire_alarm": 6,
+    "glass_break": 7,
+    "gunshot": 8,
+    "scream": 9,
+    "water": 10
+  }
+}

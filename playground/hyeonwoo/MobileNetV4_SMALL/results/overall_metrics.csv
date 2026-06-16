@@ -1,0 +1,12 @@
+metric,value
+Top-1 accuracy,0.7125
+Macro precision,0.7217489177489178
+Macro recall,0.7125
+Macro F1,0.7041032074220928
+Weighted F1,0.7041032074220928
+MRR,0.7885
+Hit@1,0.7125
+Hit@2,0.7875
+Hit@3,0.87
+Hit@4,0.9
+Hit@5,0.9175

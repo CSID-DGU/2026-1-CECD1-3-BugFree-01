@@ -1,0 +1,8 @@
+{
+  "checkpoint": "C:\\Users\\Gamzadole\\Desktop\\csce\\EdgeAudioRecognition\\playground\\hyeonwoo\\MobileNetV4_SMALL\\checkpoints\\esc-50_tuning_model.pth",
+  "history_csv": "C:\\Users\\Gamzadole\\Desktop\\csce\\EdgeAudioRecognition\\playground\\hyeonwoo\\MobileNetV4_SMALL\\checkpoints\\esc-50_tuning_model.history.csv",
+  "best_val_accuracy": 0.71,
+  "val_fold": 5,
+  "epochs": 50,
+  "model_name": "mobilenetv4_conv_small.e2400_r224_in1k"
+}

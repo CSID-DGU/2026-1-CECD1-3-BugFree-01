@@ -1,0 +1,93 @@
+﻿{
+    "output_dir":  "datasets\\soundkey_balanced_v2",
+    "window_sec":  2.0,
+    "threshold_dbfs":  -45.0,
+    "resample_rate":  32000,
+    "segment_cap_per_label":  650,
+    "labels":  [
+                   "baby_cry",
+                   "bicycle",
+                   "car_horn",
+                   "cat_meow",
+                   "dog_bark",
+                   "door_knock",
+                   "fire_alarm",
+                   "glass_breaking",
+                   "gunshot",
+                   "scream",
+                   "siren",
+                   "water_sound",
+                   "background_other"
+               ],
+    "total_segments_before_cap":  26494,
+    "total_segments":  6837,
+    "counts_by_label":  {
+                            "baby_cry":  650,
+                            "bicycle":  650,
+                            "car_horn":  69,
+                            "cat_meow":  650,
+                            "dog_bark":  650,
+                            "door_knock":  57,
+                            "fire_alarm":  211,
+                            "glass_breaking":  650,
+                            "gunshot":  650,
+                            "scream":  650,
+                            "siren":  650,
+                            "water_sound":  650,
+                            "background_other":  650
+                        },
+    "counts_by_split":  {
+                            "train":  4788,
+                            "val":  1042,
+                            "test":  1007
+                        },
+    "counts_by_source":  {
+                             "soundkey_dataset::crying":  584,
+                             "edge_audio_dataset":  1422,
+                             "soundkey_dataset::baby_cry":  61,
+                             "soundkey_dataset::bicycle":  650,
+                             "soundkey_dataset::car_horn":  63,
+                             "soundkey_dataset::cat_meow":  647,
+                             "soundkey_dataset::dog_bark":  646,
+                             "soundkey_dataset::door_knock":  51,
+                             "soundkey_dataset::glass_breaking":  373,
+                             "soundkey_dataset::scream":  650,
+                             "soundkey_dataset::siren":  494,
+                             "soundkey_dataset::water_sound":  546,
+                             "soundkey_dataset::appliance_sound":  650
+                         },
+    "soundkey_file_candidates":  1757,
+    "skipped_soundkey_overlap_by_stem":  {
+                                             "baby_cry":  3,
+                                             "car_horn":  3,
+                                             "cat_meow":  7,
+                                             "dog_bark":  7,
+                                             "door_knock":  5
+                                         },
+    "skipped_soundkey_missing":  {
+
+                                 },
+    "soundkey_excluded_segments":  {
+                                       "below_threshold::bicycle":  160,
+                                       "below_threshold::car_horn":  11,
+                                       "below_threshold::cat_meow":  503,
+                                       "below_threshold::dog_bark":  419,
+                                       "below_threshold::door_knock":  19,
+                                       "below_threshold::glass_breaking":  89,
+                                       "below_threshold::scream":  251,
+                                       "below_threshold::siren":  122,
+                                       "below_threshold::water_sound":  397,
+                                       "below_threshold::crying":  182,
+                                       "below_threshold::appliance_sound":  1139
+                                   },
+    "selection_policy":  {
+                             "edge_audio_dataset":  "kept as primary source, then segment-capped for balance",
+                             "soundkey_dataset":  "used for recommended classes only, edge stem overlap excluded",
+                             "crying":  "random subset mapped into baby_cry",
+                             "appliance_sound":  "random subset mapped into background_other",
+                             "gunshot":  "not imported from soundkey_dataset; edge gunshot is segment-capped",
+                             "construction_noise":  "not used",
+                             "split":  "file-level split by source_dataset/source_folder/source_file; segments from the same source file stay in one split"
+                         },
+    "split_policy":  "file-level split by source_dataset/source_folder/source_file; segments from the same source file stay in one split"
+}

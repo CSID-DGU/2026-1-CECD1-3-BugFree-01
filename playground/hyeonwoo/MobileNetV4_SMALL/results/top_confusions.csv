@@ -1,0 +1,21 @@
+true_category,predicted_category,count,true_category_error_rate,pair
+fireworks,footsteps,6,0.75,fireworks -> footsteps
+mouse_click,crackling_fire,3,0.375,mouse_click -> crackling_fire
+dog,coughing,2,0.25,dog -> coughing
+frog,water_drops,2,0.25,frog -> water_drops
+hen,laughing,2,0.25,hen -> laughing
+insects,rain,2,0.25,insects -> rain
+wind,cat,2,0.25,wind -> cat
+crying_baby,hen,2,0.25,crying_baby -> hen
+sneezing,coughing,2,0.25,sneezing -> coughing
+clapping,rain,2,0.25,clapping -> rain
+breathing,train,2,0.25,breathing -> train
+snoring,breathing,2,0.25,snoring -> breathing
+drinking_sipping,pig,2,0.25,drinking_sipping -> pig
+helicopter,washing_machine,2,0.25,helicopter -> washing_machine
+engine,helicopter,2,0.25,engine -> helicopter
+airplane,thunderstorm,2,0.25,airplane -> thunderstorm
+hand_saw,breathing,2,0.25,hand_saw -> breathing
+dog,crow,1,0.125,dog -> crow
+dog,can_opening,1,0.125,dog -> can_opening
+pig,dog,1,0.125,pig -> dog

@@ -1,0 +1,1156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MobileNetV4-small ESC-50 Analysis Report</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2933;
+      background: #f6f8fb;
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+    h2 {
+      margin: 36px 0 14px;
+      font-size: 22px;
+    }
+    .subtitle {
+      margin: 0 0 24px;
+      color: #52606d;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 24px 0 28px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .card-label {
+      color: #627d98;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .card-value {
+      color: #102a43;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    section {
+      margin: 24px 0;
+      padding: 22px;
+      background: white;
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      border: 1px solid #edf2f7;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: white;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid #d9e2ec;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    .data-table th {
+      background: #eef2f7;
+    }
+    .sortable-table th {
+      cursor: pointer;
+      padding-right: 24px;
+      position: relative;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .sortable-table th:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: -2px;
+    }
+    .sort-indicator {
+      color: #627d98;
+      font-size: 11px;
+      margin-left: 6px;
+    }
+    .note {
+      padding: 14px 16px;
+      background: #fff8e6;
+      border: 1px solid #f0d98c;
+      border-radius: 8px;
+      color: #594214;
+    }
+  </style>
+  <script>
+    function parseSortValue(text) {
+      var cleaned = text.trim().replace(/,/g, "");
+      if (cleaned.endsWith("%")) {
+        cleaned = cleaned.slice(0, -1);
+      }
+      if (cleaned !== "" && !Number.isNaN(Number(cleaned))) {
+        return Number(cleaned);
+      }
+      return text.trim().toLowerCase();
+    }
+
+    function sortTable(table, columnIndex, direction) {
+      var tbody = table.tBodies[0];
+      var rows = Array.from(tbody.rows).map(function(row, index) {
+        return {
+          row: row,
+          index: index,
+          value: parseSortValue(row.cells[columnIndex].textContent)
+        };
+      });
+      var numeric = rows.every(function(item) {
+        return typeof item.value === "number";
+      });
+
+      rows.sort(function(left, right) {
+        var comparison;
+        if (numeric) {
+          comparison = left.value - right.value;
+        } else {
+          comparison = String(left.value).localeCompare(String(right.value), undefined, {
+            numeric: true,
+            sensitivity: "base"
+          });
+        }
+        if (comparison === 0) {
+          comparison = left.index - right.index;
+        }
+        return direction === "asc" ? comparison : -comparison;
+      });
+
+      rows.forEach(function(item) {
+        tbody.appendChild(item.row);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll("table.sortable-table").forEach(function(table) {
+        table.querySelectorAll("thead th").forEach(function(header, columnIndex) {
+          var indicator = document.createElement("span");
+          indicator.className = "sort-indicator";
+          indicator.setAttribute("aria-hidden", "true");
+          header.appendChild(indicator);
+          header.tabIndex = 0;
+          header.setAttribute("role", "button");
+          header.setAttribute("aria-sort", "none");
+
+          function activateSort() {
+            var direction = header.dataset.sortDirection === "asc" ? "desc" : "asc";
+            table.querySelectorAll("thead th").forEach(function(otherHeader) {
+              otherHeader.dataset.sortDirection = "";
+              otherHeader.setAttribute("aria-sort", "none");
+              var otherIndicator = otherHeader.querySelector(".sort-indicator");
+              if (otherIndicator) {
+                otherIndicator.textContent = "";
+              }
+            });
+            header.dataset.sortDirection = direction;
+            header.setAttribute("aria-sort", direction === "asc" ? "ascending" : "descending");
+            indicator.textContent = direction === "asc" ? "ASC" : "DESC";
+            sortTable(table, columnIndex, direction);
+          }
+
+          header.addEventListener("click", activateSort);
+          header.addEventListener("keydown", function(event) {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              activateSort();
+            }
+          });
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<main>
+  <h1>MobileNetV4-small ESC-50 Analysis Report</h1>
+  <p class="subtitle">Log-mel spectrogram images are evaluated with a timm MobileNetV4-small classifier.</p>
+  <div class="cards">
+    <div class="card"><div class="card-label">Total files</div><div class="card-value">400</div></div>
+<div class="card"><div class="card-label">Classes</div><div class="card-value">50</div></div>
+<div class="card"><div class="card-label">Folds</div><div class="card-value">5</div></div>
+<div class="card"><div class="card-label">Top-1 accuracy</div><div class="card-value">71.2%</div></div>
+<div class="card"><div class="card-label">Macro F1</div><div class="card-value">0.704</div></div>
+<div class="card"><div class="card-label">Weighted F1</div><div class="card-value">0.704</div></div>
+<div class="card"><div class="card-label">MRR</div><div class="card-value">0.788</div></div>
+<div class="card"><div class="card-label">Hit@5</div><div class="card-value">91.8%</div></div>
+  </div>
+  <p class="note">If this report was generated without a fine-tuned checkpoint, the ESC-50 classifier head is random and the numbers are only a pipeline baseline.</p>
+  <section><h2>Mobilenetv4 Metrics Dashboard</h2><img src="plots/mobilenetv4_metrics_dashboard.png" alt="mobilenetv4_metrics_dashboard"></section>
+<section><h2>Mobilenetv4 Per Category Metrics Heatmap</h2><img src="plots/mobilenetv4_per_category_metrics_heatmap.png" alt="mobilenetv4_per_category_metrics_heatmap"></section>
+<section><h2>Mobilenetv4 Per Category F1</h2><img src="plots/mobilenetv4_per_category_f1.png" alt="mobilenetv4_per_category_f1"></section>
+<section><h2>Mobilenetv4 Confusion Matrix Normalized</h2><img src="plots/mobilenetv4_confusion_matrix_normalized.png" alt="mobilenetv4_confusion_matrix_normalized"></section>
+<section><h2>Mobilenetv4 Top Confusions</h2><img src="plots/mobilenetv4_top_confusions.png" alt="mobilenetv4_top_confusions"></section>
+<section><h2>Mobilenetv4 Confidence Distribution</h2><img src="plots/mobilenetv4_confidence_distribution.png" alt="mobilenetv4_confidence_distribution"></section>
+  <section>
+    <h2>Overall Metrics</h2>
+    <table border="1" class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metric</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Top-1 accuracy</td>
+      <td>71.2%</td>
+    </tr>
+    <tr>
+      <td>Macro precision</td>
+      <td>72.2%</td>
+    </tr>
+    <tr>
+      <td>Macro recall</td>
+      <td>71.2%</td>
+    </tr>
+    <tr>
+      <td>Macro F1</td>
+      <td>70.4%</td>
+    </tr>
+    <tr>
+      <td>Weighted F1</td>
+      <td>70.4%</td>
+    </tr>
+    <tr>
+      <td>MRR</td>
+      <td>78.8%</td>
+    </tr>
+    <tr>
+      <td>Hit@1</td>
+      <td>71.2%</td>
+    </tr>
+    <tr>
+      <td>Hit@2</td>
+      <td>78.8%</td>
+    </tr>
+    <tr>
+      <td>Hit@3</td>
+      <td>87.0%</td>
+    </tr>
+    <tr>
+      <td>Hit@4</td>
+      <td>90.0%</td>
+    </tr>
+    <tr>
+      <td>Hit@5</td>
+      <td>91.8%</td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+  <section>
+    <h2>Per-category Metrics</h2>
+    <table border="1" class="dataframe data-table sortable-table" id="per-category-metrics">
+  <thead>
+    <tr style="text-align: right;">
+      <th>category</th>
+      <th>target</th>
+      <th>support</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1_score</th>
+      <th>mean_reciprocal_rank</th>
+      <th>average_top1_score</th>
+      <th>hit@1</th>
+      <th>hit@2</th>
+      <th>hit@3</th>
+      <th>hit@4</th>
+      <th>hit@5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rooster</td>
+      <td>1</td>
+      <td>8</td>
+      <td>88.9%</td>
+      <td>100.0%</td>
+      <td>94.1%</td>
+      <td>100.0%</td>
+      <td>94.8%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>sheep</td>
+      <td>8</td>
+      <td>8</td>
+      <td>88.9%</td>
+      <td>100.0%</td>
+      <td>94.1%</td>
+      <td>100.0%</td>
+      <td>85.3%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>church_bells</td>
+      <td>46</td>
+      <td>8</td>
+      <td>88.9%</td>
+      <td>100.0%</td>
+      <td>94.1%</td>
+      <td>100.0%</td>
+      <td>98.7%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>clock_alarm</td>
+      <td>37</td>
+      <td>8</td>
+      <td>88.9%</td>
+      <td>100.0%</td>
+      <td>94.1%</td>
+      <td>100.0%</td>
+      <td>93.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>car_horn</td>
+      <td>43</td>
+      <td>8</td>
+      <td>88.9%</td>
+      <td>100.0%</td>
+      <td>94.1%</td>
+      <td>100.0%</td>
+      <td>93.8%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>crickets</td>
+      <td>13</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>87.5%</td>
+      <td>93.3%</td>
+      <td>91.7%</td>
+      <td>90.7%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>chainsaw</td>
+      <td>41</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>87.5%</td>
+      <td>93.3%</td>
+      <td>87.5%</td>
+      <td>77.3%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>pouring_water</td>
+      <td>17</td>
+      <td>8</td>
+      <td>80.0%</td>
+      <td>100.0%</td>
+      <td>88.9%</td>
+      <td>100.0%</td>
+      <td>91.9%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>sea_waves</td>
+      <td>11</td>
+      <td>8</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>91.7%</td>
+      <td>94.2%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>door_wood_knock</td>
+      <td>30</td>
+      <td>8</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>89.9%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>brushing_teeth</td>
+      <td>27</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>75.0%</td>
+      <td>85.7%</td>
+      <td>87.5%</td>
+      <td>82.3%</td>
+      <td>75.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>cow</td>
+      <td>3</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>75.0%</td>
+      <td>85.7%</td>
+      <td>79.2%</td>
+      <td>71.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>cat</td>
+      <td>5</td>
+      <td>8</td>
+      <td>72.7%</td>
+      <td>100.0%</td>
+      <td>84.2%</td>
+      <td>100.0%</td>
+      <td>72.3%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>toilet_flush</td>
+      <td>18</td>
+      <td>8</td>
+      <td>77.8%</td>
+      <td>87.5%</td>
+      <td>82.4%</td>
+      <td>87.5%</td>
+      <td>80.7%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>thunderstorm</td>
+      <td>19</td>
+      <td>8</td>
+      <td>77.8%</td>
+      <td>87.5%</td>
+      <td>82.4%</td>
+      <td>91.7%</td>
+      <td>89.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>siren</td>
+      <td>42</td>
+      <td>8</td>
+      <td>77.8%</td>
+      <td>87.5%</td>
+      <td>82.4%</td>
+      <td>91.7%</td>
+      <td>82.6%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>chirping_birds</td>
+      <td>14</td>
+      <td>8</td>
+      <td>85.7%</td>
+      <td>75.0%</td>
+      <td>80.0%</td>
+      <td>81.2%</td>
+      <td>79.8%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>rain</td>
+      <td>10</td>
+      <td>8</td>
+      <td>66.7%</td>
+      <td>100.0%</td>
+      <td>80.0%</td>
+      <td>100.0%</td>
+      <td>98.4%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>clock_tick</td>
+      <td>38</td>
+      <td>8</td>
+      <td>85.7%</td>
+      <td>75.0%</td>
+      <td>80.0%</td>
+      <td>85.4%</td>
+      <td>80.9%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>keyboard_typing</td>
+      <td>32</td>
+      <td>8</td>
+      <td>70.0%</td>
+      <td>87.5%</td>
+      <td>77.8%</td>
+      <td>87.5%</td>
+      <td>71.2%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>glass_breaking</td>
+      <td>39</td>
+      <td>8</td>
+      <td>70.0%</td>
+      <td>87.5%</td>
+      <td>77.8%</td>
+      <td>91.7%</td>
+      <td>80.1%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>insects</td>
+      <td>7</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>62.5%</td>
+      <td>76.9%</td>
+      <td>75.0%</td>
+      <td>69.2%</td>
+      <td>62.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>door_wood_creaks</td>
+      <td>33</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>62.5%</td>
+      <td>76.9%</td>
+      <td>68.1%</td>
+      <td>81.9%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>crow</td>
+      <td>9</td>
+      <td>8</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>84.4%</td>
+      <td>75.2%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>washing_machine</td>
+      <td>35</td>
+      <td>8</td>
+      <td>63.6%</td>
+      <td>87.5%</td>
+      <td>73.7%</td>
+      <td>87.5%</td>
+      <td>79.4%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>engine</td>
+      <td>44</td>
+      <td>8</td>
+      <td>83.3%</td>
+      <td>62.5%</td>
+      <td>71.4%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>vacuum_cleaner</td>
+      <td>36</td>
+      <td>8</td>
+      <td>66.7%</td>
+      <td>75.0%</td>
+      <td>70.6%</td>
+      <td>85.4%</td>
+      <td>88.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>hand_saw</td>
+      <td>49</td>
+      <td>8</td>
+      <td>66.7%</td>
+      <td>75.0%</td>
+      <td>70.6%</td>
+      <td>84.4%</td>
+      <td>82.8%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>crackling_fire</td>
+      <td>12</td>
+      <td>8</td>
+      <td>66.7%</td>
+      <td>75.0%</td>
+      <td>70.6%</td>
+      <td>84.4%</td>
+      <td>66.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>snoring</td>
+      <td>28</td>
+      <td>8</td>
+      <td>66.7%</td>
+      <td>75.0%</td>
+      <td>70.6%</td>
+      <td>85.4%</td>
+      <td>86.1%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>airplane</td>
+      <td>47</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>50.0%</td>
+      <td>66.7%</td>
+      <td>64.0%</td>
+      <td>74.0%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>wind</td>
+      <td>16</td>
+      <td>8</td>
+      <td>60.0%</td>
+      <td>75.0%</td>
+      <td>66.7%</td>
+      <td>78.1%</td>
+      <td>72.1%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>sneezing</td>
+      <td>21</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>50.0%</td>
+      <td>66.7%</td>
+      <td>62.5%</td>
+      <td>68.5%</td>
+      <td>50.0%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>train</td>
+      <td>45</td>
+      <td>8</td>
+      <td>60.0%</td>
+      <td>75.0%</td>
+      <td>66.7%</td>
+      <td>83.3%</td>
+      <td>68.1%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>drinking_sipping</td>
+      <td>29</td>
+      <td>8</td>
+      <td>71.4%</td>
+      <td>62.5%</td>
+      <td>66.7%</td>
+      <td>72.9%</td>
+      <td>53.1%</td>
+      <td>62.5%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>clapping</td>
+      <td>22</td>
+      <td>8</td>
+      <td>100.0%</td>
+      <td>50.0%</td>
+      <td>66.7%</td>
+      <td>58.3%</td>
+      <td>68.8%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+    </tr>
+    <tr>
+      <td>helicopter</td>
+      <td>40</td>
+      <td>8</td>
+      <td>55.6%</td>
+      <td>62.5%</td>
+      <td>58.8%</td>
+      <td>77.1%</td>
+      <td>92.0%</td>
+      <td>62.5%</td>
+      <td>75.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>crying_baby</td>
+      <td>20</td>
+      <td>8</td>
+      <td>55.6%</td>
+      <td>62.5%</td>
+      <td>58.8%</td>
+      <td>75.0%</td>
+      <td>72.0%</td>
+      <td>62.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>mouse_click</td>
+      <td>31</td>
+      <td>8</td>
+      <td>66.7%</td>
+      <td>50.0%</td>
+      <td>57.1%</td>
+      <td>61.5%</td>
+      <td>77.0%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>footsteps</td>
+      <td>25</td>
+      <td>8</td>
+      <td>42.9%</td>
+      <td>75.0%</td>
+      <td>54.5%</td>
+      <td>82.3%</td>
+      <td>84.3%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>frog</td>
+      <td>4</td>
+      <td>8</td>
+      <td>57.1%</td>
+      <td>50.0%</td>
+      <td>53.3%</td>
+      <td>62.5%</td>
+      <td>72.4%</td>
+      <td>50.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+      <td>75.0%</td>
+    </tr>
+    <tr>
+      <td>can_opening</td>
+      <td>34</td>
+      <td>8</td>
+      <td>57.1%</td>
+      <td>50.0%</td>
+      <td>53.3%</td>
+      <td>66.0%</td>
+      <td>51.4%</td>
+      <td>50.0%</td>
+      <td>62.5%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>water_drops</td>
+      <td>15</td>
+      <td>8</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>64.6%</td>
+      <td>62.5%</td>
+      <td>50.0%</td>
+      <td>62.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>dog</td>
+      <td>0</td>
+      <td>8</td>
+      <td>44.4%</td>
+      <td>50.0%</td>
+      <td>47.1%</td>
+      <td>66.7%</td>
+      <td>80.6%</td>
+      <td>50.0%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+      <td>87.5%</td>
+    </tr>
+    <tr>
+      <td>coughing</td>
+      <td>24</td>
+      <td>8</td>
+      <td>40.0%</td>
+      <td>50.0%</td>
+      <td>44.4%</td>
+      <td>72.9%</td>
+      <td>72.5%</td>
+      <td>50.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>pig</td>
+      <td>2</td>
+      <td>8</td>
+      <td>40.0%</td>
+      <td>50.0%</td>
+      <td>44.4%</td>
+      <td>50.0%</td>
+      <td>62.7%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+      <td>50.0%</td>
+    </tr>
+    <tr>
+      <td>laughing</td>
+      <td>26</td>
+      <td>8</td>
+      <td>50.0%</td>
+      <td>37.5%</td>
+      <td>42.9%</td>
+      <td>52.5%</td>
+      <td>46.3%</td>
+      <td>37.5%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+      <td>75.0%</td>
+    </tr>
+    <tr>
+      <td>hen</td>
+      <td>6</td>
+      <td>8</td>
+      <td>42.9%</td>
+      <td>37.5%</td>
+      <td>40.0%</td>
+      <td>59.8%</td>
+      <td>75.2%</td>
+      <td>37.5%</td>
+      <td>62.5%</td>
+      <td>75.0%</td>
+      <td>87.5%</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>breathing</td>
+      <td>23</td>
+      <td>8</td>
+      <td>42.9%</td>
+      <td>37.5%</td>
+      <td>40.0%</td>
+      <td>45.8%</td>
+      <td>58.3%</td>
+      <td>37.5%</td>
+      <td>37.5%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+      <td>62.5%</td>
+    </tr>
+    <tr>
+      <td>fireworks</td>
+      <td>48</td>
+      <td>8</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>15.4%</td>
+      <td>75.3%</td>
+      <td>0.0%</td>
+      <td>12.5%</td>
+      <td>25.0%</td>
+      <td>25.0%</td>
+      <td>50.0%</td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+  <section>
+    <h2>Top Confusions</h2>
+    <table border="1" class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>true_category</th>
+      <th>predicted_category</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fireworks</td>
+      <td>footsteps</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>mouse_click</td>
+      <td>crackling_fire</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>dog</td>
+      <td>coughing</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>frog</td>
+      <td>water_drops</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>hen</td>
+      <td>laughing</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>insects</td>
+      <td>rain</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>wind</td>
+      <td>cat</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>crying_baby</td>
+      <td>hen</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>sneezing</td>
+      <td>coughing</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>clapping</td>
+      <td>rain</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>breathing</td>
+      <td>train</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>snoring</td>
+      <td>breathing</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>drinking_sipping</td>
+      <td>pig</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>helicopter</td>
+      <td>washing_machine</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>engine</td>
+      <td>helicopter</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>airplane</td>
+      <td>thunderstorm</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>hand_saw</td>
+      <td>breathing</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>dog</td>
+      <td>crow</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>dog</td>
+      <td>can_opening</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>pig</td>
+      <td>dog</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+</main>
+</body>
+</html>

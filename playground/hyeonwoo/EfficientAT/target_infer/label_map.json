@@ -1,0 +1,79 @@
+{
+  "class_names": [
+    "construction",
+    "gunshot",
+    "alarm_siren",
+    "horn",
+    "water",
+    "knock",
+    "appliances",
+    "baby_cry",
+    "animal_cry",
+    "glass_shatter"
+  ],
+  "target_class_mapping": {
+    "construction": [
+      "jackhammer",
+      "drilling"
+    ],
+    "gunshot": [
+      "gunshot"
+    ],
+    "alarm_siren": [
+      "siren",
+      "clock_alarm"
+    ],
+    "horn": [
+      "car_horn"
+    ],
+    "water": [
+      "rain",
+      "pouring_water",
+      "water_drops"
+    ],
+    "knock": [
+      "door_wood_knock"
+    ],
+    "appliances": [
+      "washing_machine",
+      "vacuum_cleaner"
+    ],
+    "baby_cry": [
+      "crying_baby"
+    ],
+    "animal_cry": [
+      "dog",
+      "cat"
+    ],
+    "glass_shatter": [
+      "glass_shattering"
+    ]
+  },
+  "esc50_to_target": {
+    "jackhammer": "construction",
+    "drilling": "construction",
+    "gunshot": "gunshot",
+    "siren": "alarm_siren",
+    "clock_alarm": "alarm_siren",
+    "car_horn": "horn",
+    "rain": "water",
+    "pouring_water": "water",
+    "water_drops": "water",
+    "door_wood_knock": "knock",
+    "washing_machine": "appliances",
+    "vacuum_cleaner": "appliances",
+    "crying_baby": "baby_cry",
+    "dog": "animal_cry",
+    "cat": "animal_cry",
+    "glass_shattering": "glass_shatter"
+  },
+  "audio_config": {
+    "sample_rate": 16000,
+    "duration_sec": 5.0,
+    "n_fft": 1024,
+    "hop_length": 320,
+    "n_mels": 64,
+    "f_min": 50.0,
+    "f_max": 8000.0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model_name": "YAMNet",
+  "model_source": "https://tfhub.dev/google/yamnet/1",
+  "model_cache_dir": "C:\\Users\\GAMZAD~1\\AppData\\Local\\Temp\\tfhub_modules\\9616fd04ec2360621642ef9455b84f4b668e219e",
+  "model_size_bytes": 18275381,
+  "model_size_mb": 17.429,
+  "input_sample_rate_hz": 16000,
+  "class_count": 521,
+  "esc50_dir": "C:\\Users\\Gamzadole\\Desktop\\csce\\EdgeAudioRecognition\\playground\\hyeonwoo\\ESC-50-master",
+  "total_files": 2000,
+  "topk": 5,
+  "parameter_count": 0,
+  "trainable_parameter_count": 0,
+  "inference_time_note": "Measured model(waveform) call only. Audio file loading and resampling are excluded. One warm-up inference is excluded.",
+  "average_inference_time_ms": 15.316,
+  "median_inference_time_ms": 14.942,
+  "min_inference_time_ms": 13.384,
+  "max_inference_time_ms": 40.729,
+  "total_measured_inference_time_seconds": 30.632428
+}

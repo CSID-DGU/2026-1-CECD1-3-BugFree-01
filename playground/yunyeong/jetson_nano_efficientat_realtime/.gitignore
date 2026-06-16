@@ -1,0 +1,36 @@
+# Audio files
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+
+# Model / weight files
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.engine
+*.tflite
+
+# Large arrays / datasets
+*.npy
+*.npz
+*.csv
+datasets/
+data/
+audio/
+resources/
+weights/
+checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+*.pb
+*.h5
+dataset/
+yamnet_class_map.csv
