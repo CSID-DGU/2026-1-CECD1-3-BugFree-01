@@ -10,7 +10,7 @@ Context Awareness: 단순 위험 감지를 넘어, 파인튜닝을 통해 다양
 
 Real-time Processing: 1~2초 단위의 실시간 오디오 스트림을 연속적으로 처리하는 저지연 파이프라인 구축.
 
-Commit History
+## Commit History
 
 CSID-DGUJ 공지 이전부터 별도의 저장소를 생성하여 프로젝트를 진행하였으며, 자세한 커밋 내역은 아래 GitHub 저장소에서 확인할 수 있습니다.
 
