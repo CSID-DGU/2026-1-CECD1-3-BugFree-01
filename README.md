@@ -9,3 +9,9 @@ Model Optimization: 엣지 디바이스 탑재를 위한 모델 경량화(TinyML
 Context Awareness: 단순 위험 감지를 넘어, 파인튜닝을 통해 다양한 생활 소음(도어락, 아기 울음, 벨소리 등) 인지.
 
 Real-time Processing: 1~2초 단위의 실시간 오디오 스트림을 연속적으로 처리하는 저지연 파이프라인 구축.
+
+Commit History
+
+CSID-DGUJ 공지 이전부터 별도의 저장소를 생성하여 프로젝트를 진행하였으며, 자세한 커밋 내역은 아래 GitHub 저장소에서 확인할 수 있습니다.
+
+https://github.com/26-DGU-CECD/EdgeAudioRecognition
